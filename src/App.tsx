@@ -1,67 +1,22 @@
-import { useState, useEffect } from 'react';
-import Header from './components/Header';
-import MobileMenu from './components/MobileMenu';
-import HeroVideo from './components/HeroVideo';
-import HeroContent from './components/HeroContent';
-import ExploreSection from './components/ExploreSection';
-import CollectionSection from './components/CollectionSection';
+import { Routes, Route } from 'react-router-dom';
 import './index.css';
+import HomePage from './pages/HomePage';
+import ExhibitsPage from './pages/ExhibitsPage';
+import ExhibitDetailPage from './pages/ExhibitDetailPage';
+import TimelinePage from './pages/TimelinePage';
+import AboutPage from './pages/AboutPage';
 
 export default function App() {
-  const [showVideo, setShowVideo] = useState(false);
-  const [activeChapter, setActiveChapter] = useState(2); // starts at "Reptiles of the Mesozoic"
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  // Reveal video after 2800ms
-  useEffect(() => {
-    const timer = setTimeout(() => setShowVideo(true), 2800);
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Auto-cycle chapters every 3500ms
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveChapter((prev) => (prev + 1) % 5);
-    }, 3500);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <>
-      {/* SEO meta */}
       <title>Natural History Museum — The Age of Dinosaurs</title>
-
-      <div className="relative">
-        {/* ── SECTION 1: HERO ── */}
-        <section
-          id="hero"
-          className="relative w-full min-h-screen flex flex-col overflow-hidden"
-        >
-          {/* Background video layer */}
-          <HeroVideo showVideo={showVideo} />
-
-          {/* Header + logo */}
-          <Header
-            isMobileMenuOpen={isMobileMenuOpen}
-            onMenuToggle={() => setIsMobileMenuOpen((v) => !v)}
-          />
-
-          {/* Mobile menu overlay */}
-          <MobileMenu isOpen={isMobileMenuOpen} />
-
-          {/* Hero text content */}
-          <HeroContent />
-        </section>
-
-        {/* ── SECTION 2: EXPLORE OUR WORLD ── */}
-        <ExploreSection />
-
-        {/* ── SECTION 3: ANCIENT COLLECTION ── */}
-        <CollectionSection
-          activeChapter={activeChapter}
-          setActiveChapter={setActiveChapter}
-        />
-      </div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/exhibits" element={<ExhibitsPage />} />
+        <Route path="/exhibits/:slug" element={<ExhibitDetailPage />} />
+        <Route path="/timeline" element={<TimelinePage />} />
+        <Route path="/about" element={<AboutPage />} />
+      </Routes>
     </>
   );
 }

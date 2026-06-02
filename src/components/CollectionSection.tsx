@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Bone, Dna, Leaf, ArrowUpRight } from 'lucide-react';
 import { chaptersData } from '../data/chapters';
@@ -8,13 +9,19 @@ interface CollectionSectionProps {
   setActiveChapter: (index: number) => void;
 }
 
-const chapterCircleIcons = [Bone, Dna, Leaf];
+// Icon buttons: Bone=carnivores, Dna=all, Leaf=herbivores
+const chapterCircleButtons = [
+  { Icon: Bone, label: 'Carnivores', filter: '?diet=carnivore' },
+  { Icon: Dna, label: 'All Species', filter: '' },
+  { Icon: Leaf, label: 'Herbivores', filter: '?diet=herbivore' },
+];
 
 export default function CollectionSection({
   activeChapter,
   setActiveChapter,
 }: CollectionSectionProps) {
   const padded = String(activeChapter + 1).padStart(2, '0');
+  const navigate = useNavigate();
 
   return (
     <section
@@ -56,17 +63,21 @@ export default function CollectionSection({
             <br />
             of wonder{' '}
             <span className="inline-flex items-center gap-2 md:gap-3 align-middle mx-2 md:mx-4 -translate-y-1">
-              {chapterCircleIcons.map((Icon, i) => (
+              {chapterCircleButtons.map(({ Icon, label, filter }) => (
                 <button
-                  key={i}
+                  key={label}
+                  onClick={() => navigate(`/exhibits${filter}`)}
+                  aria-label={`Browse ${label}`}
+                  title={label}
                   className="w-10 h-10 md:w-14 md:h-14 rounded-full border border-gray-600 bg-black text-gray-400
-                    hover:bg-white hover:text-black hover:border-white transition-all duration-300 flex items-center justify-center"
+                    hover:bg-white hover:text-black hover:border-white transition-all duration-300 flex items-center justify-center
+                    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
                   <Icon size={22} strokeWidth={1.5} />
                 </button>
               ))}
             </span>
-            {' '}&amp; discovery.
+            {' '}& discovery.
           </motion.h2>
 
           {/* Right — Tagline + pills */}
@@ -85,11 +96,14 @@ export default function CollectionSection({
               WE SHARE EARTH'S STORY
             </p>
             <div className="flex flex-wrap gap-3">
-              {['Educational', 'Authentic', 'Inspiring'].map((tag) => (
+              {(['Educational', 'Authentic', 'Inspiring'] as const).map((tag) => (
                 <button
                   key={tag}
+                  onClick={() => navigate('/about')}
+                  aria-label={`${tag} — learn about us`}
                   className="px-5 py-2 rounded-full border border-gray-600 font-mono tracking-widest uppercase text-gray-300
-                    hover:bg-white hover:text-black hover:border-white transition-all duration-300"
+                    hover:bg-white hover:text-black hover:border-white transition-all duration-300
+                    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   style={{ fontSize: '9px' }}
                 >
                   {tag}
@@ -108,7 +122,7 @@ export default function CollectionSection({
         {/* LEFT PANEL — chapter image */}
         <div className="relative md:w-[35%] border-b md:border-b-0 md:border-r border-gray-800 min-h-[400px] md:min-h-[500px] flex flex-col justify-between p-8">
           {/* Stars top */}
-          <p className="text-gray-500 text-xl tracking-[0.3em] font-mono">***</p>
+          <p className="text-gray-500 text-xl tracking-[0.3em] font-mono" aria-hidden="true">***</p>
 
           {/* Chapter image — sand dissolve */}
           <div className="relative flex-1 my-4" style={{ minHeight: '280px' }}>
@@ -181,9 +195,14 @@ export default function CollectionSection({
                 <button
                   key={chapter.name}
                   id={`chapter-${index}`}
-                  onClick={() => setActiveChapter(index)}
+                  onClick={() => {
+                    setActiveChapter(index);
+                    navigate('/exhibits');
+                  }}
+                  aria-pressed={isActive}
                   className={`relative group flex items-center justify-between border-b border-gray-800/80 px-8 py-8 text-left transition-colors duration-300
-                    ${isActive ? 'text-white' : 'text-[#444] hover:text-[#999]'}`}
+                    ${isActive ? 'text-white' : 'text-[#444] hover:text-[#999]'}
+                    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
                 >
                   <span
                     className="font-medium tracking-tight"

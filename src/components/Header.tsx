@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import NHMLogo from './NHMLogo';
@@ -7,7 +8,13 @@ interface HeaderProps {
   onMenuToggle: () => void;
 }
 
-const navLinks = ['Visit', 'Exhibitions', 'Discover', 'Learn', 'About'];
+const navLinks: { label: string; to: string }[] = [
+  { label: 'Visit', to: '/exhibits' },
+  { label: 'Exhibitions', to: '/exhibits' },
+  { label: 'Discover', to: '/timeline' },
+  { label: 'Learn', to: '/timeline' },
+  { label: 'About', to: '/about' },
+];
 
 const headerVariants = {
   initial: {},
@@ -21,7 +28,7 @@ const fadeUp = {
   animate: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: 'easeOut' },
+    transition: { duration: 0.8, ease: 'easeOut' as const },
   },
 };
 
@@ -42,10 +49,7 @@ export default function Header({ isMobileMenuOpen, onMenuToggle }: HeaderProps) 
         className="flex justify-between items-start mt-8"
       >
         {/* Left column */}
-        <div
-          className="w-[15%] hidden md:block"
-          style={{ fontSize: '10px' }}
-        >
+        <div className="w-[15%] hidden md:block" style={{ fontSize: '10px' }}>
           <p className="font-mono tracking-[0.2em] uppercase leading-relaxed text-gray-700">
             Natura<br />History<br />Museum
           </p>
@@ -58,10 +62,7 @@ export default function Header({ isMobileMenuOpen, onMenuToggle }: HeaderProps) 
 
         {/* Center column */}
         <div className="flex-1 md:flex-none md:w-[30%]">
-          <p
-            className="text-gray-800 leading-relaxed font-mono"
-            style={{ fontSize: '10px' }}
-          >
+          <p className="text-gray-800 leading-relaxed font-mono" style={{ fontSize: '10px' }}>
             <span className="hidden md:block">
               Exploring the story of life<br />
               on earth through science,<br />
@@ -82,15 +83,19 @@ export default function Header({ isMobileMenuOpen, onMenuToggle }: HeaderProps) 
         </div>
 
         {/* Right nav — desktop only */}
-        <nav className="hidden md:flex flex-col w-[15%]" style={{ fontSize: '10px' }}>
-          {navLinks.map((link) => (
-            <a
-              key={link}
-              href="#"
-              className="font-mono tracking-[0.2em] uppercase text-gray-800 hover:text-black hover:underline transition-colors duration-200 leading-relaxed"
+        <nav
+          className="hidden md:flex flex-col w-[15%]"
+          style={{ fontSize: '10px' }}
+          aria-label="Main navigation"
+        >
+          {navLinks.map(({ label, to }) => (
+            <Link
+              key={label}
+              to={to}
+              className="font-mono tracking-[0.2em] uppercase text-gray-800 hover:text-black hover:underline transition-colors duration-200 leading-relaxed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
-              {link}
-            </a>
+              {label}
+            </Link>
           ))}
         </nav>
 
@@ -99,8 +104,9 @@ export default function Header({ isMobileMenuOpen, onMenuToggle }: HeaderProps) 
           id="mobile-menu-toggle"
           onClick={onMenuToggle}
           className="flex flex-col gap-[6px] cursor-pointer z-60 ml-4 group p-1"
-          aria-label="Toggle menu"
+          aria-label="Toggle navigation menu"
           aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-nav"
         >
           <span
             className={`block h-[1.5px] bg-black transition-all duration-300 origin-center ${

@@ -1,12 +1,19 @@
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Bone, Dna, Gem, Leaf, BookOpen } from 'lucide-react';
 
-const pills = [
-  { icon: Bone, label: 'Dinosaurs' },
-  { icon: Dna, label: 'Ancient Life' },
-  { icon: Gem, label: 'Minerals' },
-  { icon: Leaf, label: 'Fossils' },
-  { icon: BookOpen, label: 'Learn More' },
+interface Pill {
+  icon: React.ElementType;
+  label: string;
+  to: string;
+}
+
+const pills: Pill[] = [
+  { icon: Bone, label: 'Dinosaurs', to: '/exhibits' },
+  { icon: Dna, label: 'Ancient Life', to: '/exhibits' },
+  { icon: Gem, label: 'Minerals', to: '/exhibits' },
+  { icon: Leaf, label: 'Fossils', to: '/exhibits' },
+  { icon: BookOpen, label: 'Learn More', to: '/timeline' },
 ];
 
 const pillContainerVariants = {
@@ -18,10 +25,12 @@ const pillContainerVariants = {
 
 const pillVariants = {
   initial: { opacity: 0, y: 16 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' as const } },
 };
 
 export default function ExploreSection() {
+  const navigate = useNavigate();
+
   return (
     <section
       id="explore"
@@ -68,13 +77,16 @@ export default function ExploreSection() {
         viewport={{ once: true, margin: '-60px' }}
         className="flex flex-wrap justify-center gap-3 md:gap-4 mb-10 md:mb-24 px-6"
       >
-        {pills.map(({ icon: Icon, label }) => (
+        {pills.map(({ icon: Icon, label, to }) => (
           <motion.button
             key={label}
             variants={pillVariants}
             id={`pill-${label.toLowerCase().replace(' ', '-')}`}
+            onClick={() => navigate(to)}
+            aria-label={label}
             className="group flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-300 text-[11px] font-medium uppercase tracking-wider bg-white/50 backdrop-blur-sm text-gray-800
-              hover:border-black hover:bg-black hover:text-white transition-all duration-300 cursor-pointer"
+              hover:border-black hover:bg-black hover:text-white transition-all duration-300 cursor-pointer
+              focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             <Icon
               size={14}

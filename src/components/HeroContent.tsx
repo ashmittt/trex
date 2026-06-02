@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Plus } from 'lucide-react';
 
@@ -35,6 +36,8 @@ function LeafIcon({ className }: { className?: string }) {
 }
 
 export default function HeroContent() {
+  const navigate = useNavigate();
+
   return (
     <>
       {/* LEFT SIDEBAR */}
@@ -78,10 +81,13 @@ export default function HeroContent() {
         <motion.div variants={fadeUp}>
           <button
             id="explore-now-btn"
+            onClick={() => navigate('/exhibits')}
+            aria-label="Explore exhibits"
             className="group relative flex items-center gap-3 bg-[#1a1a1a] px-6 py-3.5 border border-[#1a1a1a] rounded-md shadow-sm overflow-hidden
               hover:-translate-y-px hover:shadow-[3px_3px_0px_rgba(17,17,17,0.5)]
               active:translate-y-0 active:shadow-sm
-              transition-all duration-300"
+              transition-all duration-300
+              focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             {/* Sliding background panel */}
             <span
@@ -139,7 +145,9 @@ export default function HeroContent() {
         <motion.div variants={fadeUp}>
           <button
             id="view-details-btn"
-            className="group flex items-center gap-3"
+            onClick={() => navigate('/exhibits/trex')}
+            aria-label="View Tyrannosaurus Rex exhibit details"
+            className="group flex items-center gap-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             <span className="w-10 h-10 rounded-full border border-gray-400 flex items-center justify-center
               group-hover:border-black group-hover:bg-[#111] transition-all duration-300">
@@ -164,7 +172,7 @@ export default function HeroContent() {
         className="hidden md:flex items-center gap-4 absolute bottom-10 left-16 z-10"
       >
         {/* Pause icon circle */}
-        <div className="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center gap-[4px]">
+        <div className="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center gap-[4px]" aria-hidden="true">
           <span className="w-[1px] h-[12px] bg-gray-600 block" />
           <span className="w-[1px] h-[12px] bg-gray-600 block" />
         </div>
