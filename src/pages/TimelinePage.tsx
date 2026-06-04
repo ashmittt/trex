@@ -86,28 +86,29 @@ export default function TimelinePage() {
   const navigate = useNavigate();
 
   return (
-    <main className="min-h-screen bg-[#050505] text-[#F5F2EA]">
+    <main className="min-h-screen bg-[#F5F2EA] text-[#1A1614] overflow-x-hidden relative">
       <title>Timeline — Natural History Museum</title>
 
       <PageHeader />
 
       {/* Hero heading */}
-      <div className="px-6 md:px-16 pt-12 pb-16 border-b border-[#A07C4F]/10">
+      <div className="px-6 md:px-16 pt-12 pb-16 border-b border-[#1A1614]/15">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
         >
-          <span className="text-[14px] font-mono tracking-[0.3em] uppercase text-[#A07C4F] block mb-4">
+          <span className="text-[14px] font-mono tracking-[0.3em] text-[#D35400] block mb-4">
             [ 03 ] Geological Timeline
           </span>
           <h1
-            className="font-normal tracking-tight text-[#F5F2EA]"
-            style={{ fontSize: 'clamp(3rem, 6.5vw, 6.5rem)', lineHeight: 1.05 }}
+            className="font-serif font-normal tracking-tight text-[#1A1614] leading-[1.05]"
+            style={{ fontSize: 'clamp(3rem, 6.5vw, 6.5rem)' }}
           >
-            252 MILLION<br />YEARS OF HISTORY
+            252 Million <br />
+            <span className="font-cursive text-5xl md:text-7xl text-[#D35400] lowercase block mt-2">Years of History</span>
           </h1>
-          <p className="text-[#D8D1C2] mt-4 font-mono max-w-lg leading-relaxed animate-fade" style={{ fontSize: '18px' }}>
+          <p className="text-[#1A1614]/75 mt-6 font-mono max-w-lg leading-relaxed" style={{ fontSize: '18px' }}>
             From the dawn of dinosaurs to their dramatic extinction — explore the three great periods of the Mesozoic Era.
           </p>
         </motion.div>
@@ -118,7 +119,7 @@ export default function TimelinePage() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut', delay: 0.25 }}
-        className="grid grid-cols-3 border-b border-[#A07C4F]/10"
+        className="grid grid-cols-3 border-b border-[#1A1614]/15"
         role="tablist"
         aria-label="Geological periods"
       >
@@ -131,26 +132,26 @@ export default function TimelinePage() {
             onClick={() =>
               setActivePeriod(activePeriod === period.id ? null : period.id)
             }
-            className={`group flex flex-col px-4 md:px-8 py-6 border-r last:border-r-0 border-[#A07C4F]/10 text-left transition-all duration-300 cursor-pointer
+            className={`group flex flex-col px-4 md:px-8 py-6 border-r last:border-r-0 border-[#1A1614]/15 text-left transition-all duration-300 cursor-pointer
               ${activePeriod === period.id
-                ? 'bg-[#0a0a0a]'
-                : 'hover:bg-[#0a0a0a]/40'
+                ? 'bg-[#1A1614] text-[#F5F2EA]'
+                : 'hover:bg-[#1A1614]/5 bg-[#FAF8F5]'
               }
-              focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-white`}
+              focus-visible:outline-none`}
           >
             <span
               className="font-mono tracking-widest uppercase mb-1"
-              style={{ fontSize: '14px', color: period.accent }}
+              style={{ fontSize: '14px', color: activePeriod === period.id ? '#F4D03F' : '#D35400' }}
             >
               {period.range}
             </span>
             <span
-              className="font-normal tracking-tight text-[#F5F2EA] group-hover:text-[#A07C4F] transition-colors"
+              className={`font-serif tracking-tight font-normal transition-colors ${activePeriod === period.id ? 'text-[#F5F2EA]' : 'text-[#1A1614] group-hover:text-[#D35400]'}`}
               style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.5rem)', lineHeight: 1.15 }}
             >
               {period.name}
             </span>
-            <span className="text-[15px] font-mono text-[#A9A295] mt-1 hidden md:block">
+            <span className={`text-[15px] font-mono mt-1 hidden md:block ${activePeriod === period.id ? 'text-[#FAF8F5]/60' : 'text-[#1A1614]/50'}`}>
               {period.tagline}
             </span>
           </button>
@@ -171,56 +172,56 @@ export default function TimelinePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: 'easeOut' }}
-              className="border-b border-[#A07C4F]/10"
+              className="border-b border-[#1A1614]/15"
             >
               {/* Overview */}
-              <div className="grid md:grid-cols-2 border-b border-[#A07C4F]/10">
-                <div className="px-6 md:px-16 py-12 border-b md:border-b-0 md:border-r border-[#A07C4F]/10">
-                  <h2 className="text-[14px] font-mono tracking-widest uppercase mb-6" style={{ color: period.accent }}>
+              <div className="grid md:grid-cols-2 border-b border-[#1A1614]/15 divide-y md:divide-y-0 md:divide-x divide-[#1A1614]/15">
+                <div className="px-6 md:px-16 py-12">
+                  <h2 className="text-[14px] font-mono tracking-widest uppercase mb-6 text-[#D35400]">
                     Overview
                   </h2>
-                  <p className="text-[#D8D1C2] leading-[1.8]" style={{ fontSize: '18px' }}>
+                  <p className="text-[#1A1614]/85 leading-[1.8] font-serif" style={{ fontSize: '19px' }}>
                     {period.overview}
                   </p>
                 </div>
-                <div className="px-6 md:px-16 py-12">
-                  <h2 className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mb-6">
+                <div className="px-6 md:px-16 py-12 bg-[#FAF8F5]">
+                  <h2 className="text-[14px] font-mono tracking-widest uppercase text-[#D35400] mb-6">
                     Climate &amp; Environment
                   </h2>
-                  <p className="text-[#A9A295] leading-[1.8]" style={{ fontSize: '18px' }}>
+                  <p className="text-[#1A1614]/75 leading-[1.8]" style={{ fontSize: '18px' }}>
                     {period.climate}
                   </p>
                 </div>
               </div>
 
               {/* Key events */}
-              <div className="px-6 md:px-16 py-12 border-b border-[#A07C4F]/10">
-                <h2 className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mb-8">
+              <div className="px-6 md:px-16 py-12 border-b border-[#1A1614]/15 bg-[#FAF8F5]">
+                <h2 className="text-[14px] font-mono tracking-widest uppercase text-[#D35400] mb-8">
                   Key Events
                 </h2>
                 <div className="flex flex-col">
                   {period.keyEvents.map((event, i) => (
                     <div
                       key={i}
-                      className="flex gap-6 py-5 border-b border-[#A07C4F]/10 last:border-b-0 items-start"
+                      className="flex gap-6 py-5 border-b border-[#1A1614]/10 last:border-b-0 items-start animate-fade"
                     >
                       <span
                         className="text-[14px] font-mono tracking-widest shrink-0 mt-0.5"
-                        style={{ color: period.accent }}
+                        style={{ color: '#D35400' }}
                         aria-hidden="true"
                       >
                         {String(i + 1).padStart(2, '0')}
                       </span>
-                      <p className="text-[18px] text-[#D8D1C2] leading-relaxed">{event}</p>
+                      <p className="text-[18px] text-[#1A1614]/80 leading-relaxed font-serif">{event}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Notable species */}
+              {/* Notable species with floating cutouts */}
               {period.species.length > 0 && (
                 <div className="px-6 md:px-16 py-12">
-                  <h2 className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mb-8">
+                  <h2 className="text-[14px] font-mono tracking-widest uppercase text-[#D35400] mb-8">
                     Notable Species
                   </h2>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -232,19 +233,22 @@ export default function TimelinePage() {
                           key={slug}
                           onClick={() => navigate(`/exhibits/${slug}`)}
                           aria-label={`View ${dino.name} exhibit`}
-                          className="group flex flex-col border border-[#A07C4F]/10 bg-[#0a0a0a] p-4 hover:border-[#A07C4F]/30 transition-all duration-300 text-left cursor-pointer
-                            focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                          className="group flex flex-col border border-[#1A1614]/10 bg-[#FAF8F5] p-4 hover:border-[#D35400]/40 transition-all duration-300 text-left cursor-pointer
+                            focus-visible:outline-none"
                         >
-                          <img
-                            src={dino.image}
-                            alt={dino.name}
-                            loading="lazy"
-                            className="w-full h-24 object-contain mix-blend-lighten mb-3 opacity-70 group-hover:opacity-100 transition-opacity duration-300"
-                          />
-                          <p className="text-[16px] font-normal text-[#F5F2EA] group-hover:text-[#A07C4F] transition-colors duration-300">
+                          <div className="w-full h-28 bg-[#F4D03F]/10 rounded-sm flex items-center justify-center relative overflow-hidden mb-3">
+                            <div className="w-10 h-10 bg-[#F4D03F]/30 opacity-40 rounded-full absolute group-hover:scale-110 transition-transform" />
+                            <img
+                              src={dino.image}
+                              alt={dino.name}
+                              loading="lazy"
+                              className="w-full h-24 object-contain mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity duration-300 animate-float"
+                            />
+                          </div>
+                          <p className="text-[16px] font-serif text-[#1A1614] group-hover:text-[#D35400] transition-colors duration-300 leading-tight">
                             {dino.shortName}
                           </p>
-                          <p className="text-[13px] font-mono tracking-widest uppercase text-[#A9A295] mt-0.5">
+                          <p className="text-[13px] font-mono tracking-widest uppercase text-[#1A1614]/50 mt-0.5">
                             {dino.diet}
                           </p>
                         </button>
@@ -261,7 +265,7 @@ export default function TimelinePage() {
                     <p className="text-[14px] font-mono tracking-widest uppercase text-[#8C3A2D] mb-3">
                       K–Pg Extinction Event · 66 Million Years Ago
                     </p>
-                    <p className="text-[18px] text-[#D8D1C2] leading-relaxed">
+                    <p className="text-[18px] text-[#1A1614]/85 leading-relaxed font-serif">
                       A 10-kilometre asteroid struck the Yucatán Peninsula with the force of a billion atomic bombs. The impact winter that followed collapsed food chains globally. Within 100,000 years, 75% of all species on Earth — including all non-avian dinosaurs — were extinct. What survived became the ancestors of every bird, mammal, and reptile alive today.
                     </p>
                   </div>
@@ -273,13 +277,13 @@ export default function TimelinePage() {
       ))}
 
       {/* Full timeline strip */}
-      <div className="px-6 md:px-16 py-16 border-b border-[#A07C4F]/10">
-        <h2 className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mb-12">
+      <div className="px-6 md:px-16 py-16 border-b border-[#1A1614]/15">
+        <h2 className="text-[14px] font-mono tracking-widest uppercase text-[#D35400] mb-12">
           The Mesozoic Era at a Glance
         </h2>
         <div className="relative">
           {/* Axis line */}
-          <div className="absolute top-5 left-0 right-0 h-[1px] bg-[#A07C4F]/20" aria-hidden="true" />
+          <div className="absolute top-5 left-0 right-0 h-[1px] bg-[#1A1614]/15" aria-hidden="true" />
 
           <div className="grid grid-cols-3 gap-1 relative">
             {periods.map((period, i) => (
@@ -294,14 +298,14 @@ export default function TimelinePage() {
                 {/* Dot on axis */}
                 <div
                   className="w-2.5 h-2.5 rounded-full border-2 mb-8 relative z-10"
-                  style={{ borderColor: period.accent, backgroundColor: '#050505' }}
+                  style={{ borderColor: period.id === 'cretaceous' ? '#8C3A2D' : '#A07C4F', backgroundColor: '#F5F2EA' }}
                   aria-hidden="true"
                 />
-                <span className="text-[14px] font-mono tracking-widest uppercase mb-1" style={{ color: period.accent }}>
+                <span className="text-[14px] font-mono tracking-widest uppercase mb-1 text-[#D35400]">
                   {period.mya} Ma
                 </span>
-                <span className="font-normal text-[#F5F2EA] text-2xl">{period.name}</span>
-                <span className="text-[14px] font-mono text-[#A9A295] mt-1">{period.tagline}</span>
+                <span className="font-serif font-normal text-[#1A1614] text-2xl">{period.name}</span>
+                <span className="text-[14px] font-mono text-[#1A1614]/50 mt-1">{period.tagline}</span>
               </motion.div>
             ))}
           </div>
@@ -316,19 +320,19 @@ export default function TimelinePage() {
           >
             <div
               className="w-2.5 h-2.5 rounded-full border-2 border-[#8C3A2D] mb-8"
-              style={{ backgroundColor: '#050505' }}
+              style={{ backgroundColor: '#F5F2EA' }}
               aria-hidden="true"
             />
             <span className="text-[14px] font-mono tracking-widest uppercase text-[#8C3A2D] mb-1">
               66 Ma
             </span>
-            <span className="text-[14px] font-mono text-[#A9A295]">K–Pg Extinction</span>
+            <span className="text-[14px] font-mono text-[#1A1614]/60">K–Pg Extinction</span>
           </motion.div>
         </div>
       </div>
 
       {/* ── GEOLOGICAL ERAS — DEEP TIME ── */}
-      <section className="px-6 md:px-16 py-16 border-b border-[#A07C4F]/10">
+      <section className="px-6 md:px-16 py-16 border-b border-[#1A1614]/15 bg-[#FAF8F5]">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -336,10 +340,10 @@ export default function TimelinePage() {
           transition={{ duration: 0.7 }}
           className="mb-16"
         >
-          <h2 className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mb-4">
+          <h2 className="text-[14px] font-mono tracking-widest uppercase text-[#D35400] mb-4">
             Geological Eras — Deep Time Context
           </h2>
-          <p className="text-[#A9A295] font-mono max-w-lg leading-relaxed" style={{ fontSize: '15px' }}>
+          <p className="text-[#1A1614]/60 font-mono max-w-lg leading-relaxed" style={{ fontSize: '15px' }}>
             The Mesozoic represents only a fraction of Earth's history. To understand the dinosaurs, you must understand the deeper context in which they arose.
           </p>
         </motion.div>
@@ -396,33 +400,33 @@ export default function TimelinePage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.07 }}
-              className={`flex flex-col md:flex-row gap-8 md:gap-16 py-8 border-b border-[#A07C4F]/10 last:border-b-0 ${highlight ? 'bg-[#A07C4F]/5' : ''}`}
+              className={`flex flex-col md:flex-row gap-8 md:gap-16 py-8 border-b border-[#1A1614]/15 last:border-b-0 ${highlight ? 'bg-[#F4D03F]/10' : ''}`}
             >
               <div className="md:w-[200px] shrink-0">
                 <div
-                  className="w-2 h-2 rounded-full mb-3"
+                  className="w-2.5 h-2.5 rounded-full mb-3"
                   style={{ backgroundColor: accent }}
                   aria-hidden="true"
                 />
-                <p className="font-normal text-[#F5F2EA] mb-1" style={{ fontSize: '18px' }}>{name}</p>
-                <p className="text-[14px] font-mono tracking-widest uppercase text-[#A9A295] mb-1">{range}</p>
-                <p className="text-[14px] font-mono tracking-widest uppercase" style={{ color: accent }}>
+                <p className="font-serif font-normal text-[#1A1614] mb-1" style={{ fontSize: '20px' }}>{name}</p>
+                <p className="text-[14px] font-mono tracking-widest uppercase text-[#1A1614]/50 mb-1">{range}</p>
+                <p className="text-[14px] font-mono tracking-widest uppercase font-semibold" style={{ color: accent }}>
                   {significance}
                 </p>
                 {highlight && (
-                  <span className="inline-block text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] border border-[#A07C4F]/30 px-2 py-0.5 mt-2">
+                  <span className="inline-block text-[13px] font-mono tracking-widest uppercase text-[#D35400] border border-[#D35400]/30 px-2 py-0.5 mt-2">
                     Our Focus
                   </span>
                 )}
               </div>
-              <p className="text-[18px] text-[#D8D1C2] leading-relaxed flex-1">{description}</p>
+              <p className="text-[18px] text-[#1A1614]/75 leading-relaxed flex-1 font-serif">{description}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* ── PRE-MESOZOIC CONTEXT ── */}
-      <section className="px-6 md:px-16 py-16 border-b border-[#A07C4F]/10">
+      <section className="px-6 md:px-16 py-16 border-b border-[#1A1614]/15">
         <div className="grid md:grid-cols-2 gap-16">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -430,16 +434,16 @@ export default function TimelinePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mb-8">
+            <h2 className="text-[14px] font-mono tracking-widest uppercase text-[#D35400] mb-8">
               The Great Dying
             </h2>
             <p
-              className="font-normal tracking-tight text-[#F5F2EA] mb-6"
-              style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', lineHeight: 1.2 }}
+              className="font-serif font-normal tracking-tight text-[#1A1614] mb-6 leading-tight"
+              style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)' }}
             >
               96% of all marine species.<br />70% of all land species.<br />Gone in 60,000 years.
             </p>
-            <p className="text-[18px] text-[#D8D1C2] leading-relaxed">
+            <p className="text-[18px] text-[#1A1614]/75 leading-relaxed">
               The Permian–Triassic extinction event — 252 million years ago — was the single most catastrophic event in the history of complex life. Triggered by massive volcanic eruptions in what is now Siberia, it produced runaway greenhouse warming, ocean acidification, and atmospheric collapse. It is from this devastation that the dinosaurs ultimately emerged — filling the ecological vacuum left by 90% of Earth's species.
             </p>
           </motion.div>
@@ -449,7 +453,7 @@ export default function TimelinePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.15 }}
           >
-            <h2 className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mb-8">
+            <h2 className="text-[14px] font-mono tracking-widest uppercase text-[#D35400] mb-8">
               Scale of Deep Time
             </h2>
             <div className="flex flex-col gap-4">
@@ -462,9 +466,9 @@ export default function TimelinePage() {
                 { label: 'First Homo sapiens', value: '0.3 Ma' },
                 { label: 'Agricultural civilisation', value: '0.012 Ma' },
               ].map(({ label, value }) => (
-                <div key={label} className="flex items-center justify-between border-b border-[#A07C4F]/10 pb-3">
-                  <span className="text-[18px] text-[#D8D1C2]">{label}</span>
-                  <span className="text-[15px] font-mono tracking-widest text-[#A07C4F]">{value}</span>
+                <div key={label} className="flex items-center justify-between border-b border-[#1A1614]/10 pb-3">
+                  <span className="text-[18px] text-[#1A1614]/75 font-serif">{label}</span>
+                  <span className="text-[15px] font-mono tracking-widest text-[#D35400]">{value}</span>
                 </div>
               ))}
             </div>
@@ -473,8 +477,8 @@ export default function TimelinePage() {
       </section>
 
       {/* Footer strip */}
-      <div className="px-8 py-8 border-t border-[#A07C4F]/15 bg-[#050505]">
-        <p className="font-mono tracking-widest text-[#A9A295] uppercase" style={{ fontSize: '12px' }}>
+      <div className="px-8 py-8 bg-[#FAF8F5]">
+        <p className="font-mono tracking-widest text-[#1A1614]/50 uppercase" style={{ fontSize: '12px' }}>
           NATURAL HISTORY MUSEUM — GEOLOGICAL RECORD (C) 2026
         </p>
       </div>
