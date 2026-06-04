@@ -17,24 +17,19 @@ const logoVariants = {
   },
 };
 
-interface NHMLogoProps {
-  className?: string;
-  fillClass?: string;
-}
-
-export default function NHMLogo({ className = "w-full", fillClass = "fill-[#F5F2EA]" }: NHMLogoProps) {
+export default function NHMLogo() {
   return (
     <motion.h1
       variants={logoVariants}
       initial="initial"
       animate="animate"
-      className={className}
+      className="w-full overflow-hidden"
       style={{ lineHeight: 0 }}
     >
       <svg
         viewBox="0 0 840 100"
         xmlns="http://www.w3.org/2000/svg"
-        className={`w-full ${fillClass}`}
+        className="w-full fill-[#F5F2EA]"
         aria-label="Natural History Museum"
       >
         {/* Letter N — translate(0,0) */}
