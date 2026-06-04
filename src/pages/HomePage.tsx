@@ -2,14 +2,15 @@ import { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import MobileMenu from '../components/MobileMenu';
 import HeroVideo from '../components/HeroVideo';
-import HeroContent from '../components/HeroContent';
-import EnterTheHall from '../components/EnterTheHall';
-import TheropodHall from '../components/TheropodHall';
-import DiscoveryStory from '../components/DiscoveryStory';
-import ScientificContext from '../components/ScientificContext';
-import SupportingSpecies from '../components/SupportingSpecies';
-import TimelineExtinction from '../components/TimelineExtinction';
-import MuseumArchive from '../components/MuseumArchive';
+import ArrivalSection from '../components/ArrivalSection';
+import TriassicSection from '../components/TriassicSection';
+import JurassicSection from '../components/JurassicSection';
+import CretaceousSection from '../components/CretaceousSection';
+import EcosystemsSection from '../components/EcosystemsSection';
+import EvolutionSection from '../components/EvolutionSection';
+import AgeOfGiantsSection from '../components/AgeOfGiantsSection';
+import ExtinctionSection from '../components/ExtinctionSection';
+import LegacySection from '../components/LegacySection';
 
 export default function HomePage() {
   const [showVideo, setShowVideo] = useState(false);
@@ -20,6 +21,13 @@ export default function HomePage() {
     const timer = setTimeout(() => setShowVideo(true), 2800);
     return () => clearTimeout(timer);
   }, []);
+
+  const handleStartJourney = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth',
+    });
+  };
 
   return (
     <div className="relative bg-[#050505] text-[#F5F2EA] min-h-screen">
@@ -44,29 +52,32 @@ export default function HomePage() {
         />
 
         {/* Hero text content */}
-        <HeroContent />
+        <ArrivalSection onStartJourney={handleStartJourney} />
       </section>
 
-      {/* ── STAGE 2: ENTER THE HALL ── */}
-      <EnterTheHall />
+      {/* ── STAGE 2: TRIASSIC ERA ── */}
+      <TriassicSection />
 
-      {/* ── STAGE 3: ENCOUNTER THE SPECIMEN ── */}
-      <TheropodHall />
+      {/* ── STAGE 3: JURASSIC ERA ── */}
+      <JurassicSection />
 
-      {/* ── STAGE 4: DISCOVERY STORY ── */}
-      <DiscoveryStory />
+      {/* ── STAGE 4: CRETACEOUS ERA ── */}
+      <CretaceousSection />
 
-      {/* ── STAGE 5: SCIENTIFIC CONTEXT ── */}
-      <ScientificContext />
+      {/* ── STAGE 5: ECOSYSTEMS OF THE MESOZOIC ── */}
+      <EcosystemsSection />
 
-      {/* ── STAGE 6: SUPPORTING SPECIES ── */}
-      <SupportingSpecies />
+      {/* ── STAGE 6: EVOLUTION ── */}
+      <EvolutionSection />
 
-      {/* ── STAGE 7: TIMELINE & EXTINCTION ── */}
-      <TimelineExtinction />
+      {/* ── STAGE 7: THE AGE OF GIANTS ── */}
+      <AgeOfGiantsSection />
 
-      {/* ── STAGE 8: MUSEUM ARCHIVE ── */}
-      <MuseumArchive />
+      {/* ── STAGE 8: EXTINCTION EVENT ── */}
+      <ExtinctionSection />
+
+      {/* ── STAGE 9: LEGACY ── */}
+      <LegacySection />
     </div>
   );
 }

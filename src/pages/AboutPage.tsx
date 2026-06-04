@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 
-// Statistics for perceived scale
+// Dramatically expanded stats for perceived scale
 const collectionStats = [
   { value: '312', label: 'Fossil Specimens', sub: 'catalogued & verified' },
   { value: '47,000+', label: 'Research Hours', sub: 'invested annually' },
@@ -96,7 +96,7 @@ const featuredDiscoveries = [
     location: 'Hell Creek Formation, Montana · Excavated 2022',
     description: 'A 94%-complete Tyrannosaurus Rex skeleton — the most complete specimen in our collection and only the third time a T-Rex skull has been found in full articulation. Currently undergoing preparation in our public lab.',
     status: 'In Preparation',
-    statusColor: 'text-[#E8C547]',
+    statusColor: 'text-[#A07C4F]',
   },
   {
     id: 'diplodocus-new',
@@ -105,7 +105,7 @@ const featuredDiscoveries = [
     location: 'Uinta County, Wyoming · Field Season 2023–2025',
     description: 'An ongoing multi-year excavation in the Morrison Formation has yielded over 40 new specimens, including a near-complete juvenile Diplodocus — the first juvenile of this species to be found with a complete skull.',
     status: 'Active Excavation',
-    statusColor: 'text-[#D35400]',
+    statusColor: 'text-[#8C3A2D]',
   },
   {
     id: 'chinese-partnership',
@@ -114,7 +114,7 @@ const featuredDiscoveries = [
     location: 'Djadokhta Formation, Mongolia · Partnership 2024',
     description: 'A five-year research agreement with the Mongolian Institute of Palaeontology grants our curators exclusive study access to a new cache of feathered theropod specimens — among the most significant finds of the decade.',
     status: 'Research Ongoing',
-    statusColor: 'text-[#E8C547]',
+    statusColor: 'text-[#A07C4F]',
   },
 ];
 
@@ -178,48 +178,47 @@ export default function AboutPage() {
   const navigate = useNavigate();
 
   return (
-    <main className="min-h-screen bg-[#151210] text-[#F5F2EA] overflow-x-hidden">
+    <main className="min-h-screen bg-[#050505] text-[#F5F2EA]">
       <title>About — Natural History Museum</title>
 
       <PageHeader />
 
       {/* ── HERO ── */}
-      <section className="px-6 md:px-16 pt-12 pb-20 border-b border-[#F5F2EA]/10">
+      <section className="px-6 md:px-16 pt-12 pb-20 border-b border-[#A07C4F]/10">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
         >
-          <span className="text-[14px] font-mono tracking-[0.3em] uppercase text-[#E8C547] block mb-4">
+          <span className="text-[14px] font-mono tracking-[0.3em] uppercase text-[#A07C4F] block mb-4">
             [ 04 ] About the Museum
           </span>
           <h1
-            className="font-serif font-normal tracking-tight text-[#F5F2EA]"
+            className="font-normal tracking-tight text-[#F5F2EA]"
             style={{ fontSize: 'clamp(3rem, 6.5vw, 6.5rem)', lineHeight: 1.05 }}
           >
-            WE DON'T JUST<br />DISPLAY FOSSILS.<br />WE SHARE<br />
-            <span className="font-script text-[#E8C547] text-[1.4em] lowercase normal-case italic block md:inline-block md:translate-y-2 mt-1">earth's story</span>
+            WE DON'T JUST<br />DISPLAY FOSSILS.<br />WE SHARE<br />EARTH'S STORY.
           </h1>
-          <p className="text-[#D8D1C2] mt-8 font-mono max-w-lg leading-relaxed text-[16px] md:text-[18px]">
+          <p className="text-[#D8D1C2] mt-8 font-mono max-w-lg leading-relaxed" style={{ fontSize: '18px' }}>
             Founded 1887. One of the world's foremost palaeontological institutions. 312 verified specimens. 19 active research curators. Five permanent wings.
           </p>
         </motion.div>
       </section>
 
-      {/* ── COLLECTION STATISTICS (Bento boxes like in the video) ── */}
-      <section className="border-b border-[#F5F2EA]/10" aria-label="Collection statistics">
+      {/* ── COLLECTION STATISTICS ── */}
+      <section className="border-b border-[#A07C4F]/10" aria-label="Collection statistics">
         <div className="px-6 md:px-16 pt-16 pb-8">
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-[14px] font-mono tracking-widest uppercase text-[#E8C547] mb-12"
+            className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mb-12"
           >
             Collection at a Glance
           </motion.h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 font-mono">
+        <div className="grid grid-cols-2 md:grid-cols-4">
           {collectionStats.map(({ value, label, sub }, i) => (
             <motion.div
               key={label}
@@ -227,36 +226,36 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.06 }}
-              className={`px-6 md:px-10 py-10 flex flex-col gap-1 border-b border-[#F5F2EA]/10
-                ${i % 4 !== 3 ? 'md:border-r border-[#F5F2EA]/10' : ''} ${i % 2 !== 1 ? 'border-r md:border-r-0 border-[#F5F2EA]/10' : ''}`}
+              className={`px-6 md:px-10 py-10 flex flex-col gap-1 border-b border-[#A07C4F]/10
+                ${i % 4 !== 3 ? 'md:border-r md:border-[#A07C4F]/10' : ''} ${i % 2 !== 1 ? 'border-r md:border-r-0 border-[#A07C4F]/10' : ''}`}
             >
               <span
-                className="font-serif font-normal tracking-tight text-[#F5F2EA]"
-                style={{ fontSize: 'clamp(2.2rem, 3.5vw, 3.5rem)', lineHeight: 1.1 }}
+                className="font-normal tracking-tight text-[#F5F2EA]"
+                style={{ fontSize: 'clamp(2rem, 3.5vw, 3.5rem)', lineHeight: 1.1 }}
               >
                 {value}
               </span>
-              <span className="text-[14px] tracking-widest uppercase text-[#E8C547]">{label}</span>
-              <span className="text-[13px] text-[#A9A295]">{sub}</span>
+              <span className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F]">{label}</span>
+              <span className="text-[13px] font-mono text-[#A9A295]">{sub}</span>
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* ── MISSION ── */}
-      <section className="grid md:grid-cols-2 border-b border-[#F5F2EA]/10">
+      <section className="grid md:grid-cols-2 border-b border-[#A07C4F]/10">
         <motion.div
           initial={{ opacity: 0, x: -24 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="px-6 md:px-16 py-16 border-b md:border-b-0 md:border-r border-[#F5F2EA]/10 font-mono"
+          className="px-6 md:px-16 py-16 border-b md:border-b-0 md:border-r border-[#A07C4F]/10"
         >
-          <h2 className="text-[14px] tracking-widest uppercase text-[#E8C547] mb-6">Our Mission</h2>
-          <p className="text-[#D8D1C2] leading-[1.8] mb-6 text-[16px] md:text-[18px]">
+          <h2 className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mb-6">Our Mission</h2>
+          <p className="text-[#D8D1C2] leading-[1.8] mb-6" style={{ fontSize: '18px' }}>
             The Natural History Museum exists to preserve, study, and communicate the story of life on Earth. Founded in 1887, we hold one of the most significant palaeontological collections in the world — over 312 catalogued specimens spanning the full breadth of the Mesozoic Era.
           </p>
-          <p className="text-[#A9A295] leading-[1.8] text-[16px] md:text-[18px]">
+          <p className="text-[#A9A295] leading-[1.8]" style={{ fontSize: '18px' }}>
             We believe that understanding deep time is one of the most important things a society can do. The history of life on Earth provides context for everything — the fragility of ecosystems, the mechanisms of extinction, and the extraordinary improbability of our own existence.
           </p>
         </motion.div>
@@ -265,27 +264,27 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
-          className="px-6 md:px-16 py-16 font-mono"
+          className="px-6 md:px-16 py-16"
         >
-          <h2 className="text-[14px] tracking-widest uppercase text-[#E8C547] mb-6">History</h2>
-          <p className="text-[#D8D1C2] leading-[1.8] text-[16px] md:text-[18px]">
+          <h2 className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mb-6">History</h2>
+          <p className="text-[#D8D1C2] leading-[1.8]" style={{ fontSize: '18px' }}>
             Established during the great age of palaeontological discovery, the museum originally housed seven specimens donated by private collectors. Over 139 years, through fieldwork on every continent, academic partnerships, and international loans, that collection has grown to 312 verified specimens and tens of thousands of associated flora and invertebrate fossils.
           </p>
-          <p className="text-[#A9A295] leading-[1.8] mt-4 text-[16px] md:text-[18px]">
-            The permanent exhibition — "The Age of Dinosaurs" — opened in 2018 following a six-year renovation of the main fossil halls. A second phase of expansion, adding two new wings and a public preparation laboratory, is scheduled for completion in 2027.
+          <p className="text-[#A9A295] leading-[1.8] mt-4" style={{ fontSize: '18px' }}>
+            The current permanent exhibition — "The Age of Dinosaurs" — opened in 2018 following a six-year renovation of the main fossil halls. A second phase of expansion, adding two new wings and a public preparation laboratory, is scheduled for completion in 2027.
           </p>
         </motion.div>
       </section>
 
-      {/* ── MUSEUM WINGS (Bento rows like in the video) ── */}
-      <section className="border-b border-[#F5F2EA]/10">
+      {/* ── MUSEUM WINGS ── */}
+      <section className="border-b border-[#A07C4F]/10">
         <div className="px-6 md:px-16 pt-16 pb-8">
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-[14px] font-mono tracking-widest uppercase text-[#E8C547] mb-2"
+            className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mb-2"
           >
             Five Permanent Wings
           </motion.h2>
@@ -294,80 +293,63 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-[#A9A295] font-mono text-[14px]"
+            className="text-[#A9A295] font-mono"
+            style={{ fontSize: '14px' }}
           >
             14,600 m² of permanent exhibition space
           </motion.p>
         </div>
         <div className="flex flex-col">
-          {museumWings.map((wing, i) => {
-            const isEven = i % 2 === 0;
-            return (
-              <motion.div
-                key={wing.number}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: i * 0.08 }}
-                className={`border-t border-[#F5F2EA]/10 px-6 md:px-16 py-10 grid md:grid-cols-[auto_1fr_auto] gap-8 md:gap-16 items-start
-                  ${isEven ? 'bg-[#F5F2EA] text-[#151210]' : 'bg-[#1A1614] text-[#F5F2EA]'}`}
-              >
-                {/* Number */}
-                <div className="shrink-0">
-                  <span className={`text-[14px] font-mono tracking-widest ${isEven ? 'text-[#D35400]' : 'text-[#E8C547]'}`}>
-                    {wing.number}
-                  </span>
+          {museumWings.map((wing, i) => (
+            <motion.div
+              key={wing.number}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55, delay: i * 0.08 }}
+              className="border-t border-[#A07C4F]/10 px-6 md:px-16 py-10 grid md:grid-cols-[auto_1fr_auto] gap-8 md:gap-16"
+            >
+              {/* Number */}
+              <div className="shrink-0">
+                <span className="text-[14px] font-mono tracking-widest text-[#A07C4F]">{wing.number}</span>
+              </div>
+              {/* Content */}
+              <div>
+                <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-6 mb-4">
+                  <h3
+                    className="font-normal tracking-tight text-[#F5F2EA]"
+                    style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', lineHeight: 1.2 }}
+                  >
+                    {wing.name}
+                  </h3>
+                  <span className="text-[13px] font-mono tracking-widest uppercase text-[#A9A295]">{wing.era}</span>
                 </div>
-                {/* Content */}
-                <div>
-                  <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-6 mb-4">
-                    <h3
-                      className="font-serif font-normal tracking-tight"
-                      style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', lineHeight: 1.2 }}
-                    >
-                      {wing.name}
-                    </h3>
-                    <span className={`text-[13px] font-mono tracking-widest uppercase ${isEven ? 'text-[#151210]/60' : 'text-[#A9A295]'}`}>
-                      {wing.era}
+                <p className="text-[18px] text-[#D8D1C2] leading-relaxed mb-6 max-w-2xl">{wing.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {wing.highlights.map(h => (
+                    <span key={h} className="text-[13px] font-mono tracking-widest uppercase text-[#A9A295] border border-[#A07C4F]/10 px-2 py-1 bg-[#0a0a0a]">
+                      {h}
                     </span>
-                  </div>
-                  <p className="text-[16px] md:text-[18px] leading-relaxed mb-6 max-w-2xl font-mono">
-                    {wing.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {wing.highlights.map(h => (
-                      <span
-                        key={h}
-                        className={`text-[13px] font-mono tracking-widest uppercase border px-2.5 py-1 rounded-sm
-                          ${isEven 
-                            ? 'border-[#151210]/15 text-[#151210] bg-black/5' 
-                            : 'border-[#F5F2EA]/10 text-[#A9A295] bg-black/20'}`}
-                      >
-                        {h}
-                      </span>
-                    ))}
-                  </div>
+                  ))}
                 </div>
-                {/* Area */}
-                <div className="shrink-0 text-right hidden md:block">
-                  <span className={`text-[14px] font-mono tracking-widest ${isEven ? 'text-[#151210]/60' : 'text-[#A9A295]'}`}>
-                    {wing.area}
-                  </span>
-                </div>
-              </motion.div>
-            );
-          })}
+              </div>
+              {/* Area */}
+              <div className="shrink-0 text-right hidden md:block">
+                <span className="text-[14px] font-mono tracking-widest text-[#A07C4F]">{wing.area}</span>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
       {/* ── FEATURED DISCOVERIES ── */}
-      <section className="px-6 md:px-16 py-16 border-b border-[#F5F2EA]/10">
+      <section className="px-6 md:px-16 py-16 border-b border-[#A07C4F]/10">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-[14px] font-mono tracking-widest uppercase text-[#E8C547] mb-12"
+          className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mb-12"
         >
           Recent Discoveries &amp; Acquisitions
         </motion.h2>
@@ -379,36 +361,36 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="flex flex-col md:flex-row gap-8 md:gap-16 py-10 border-b border-[#F5F2EA]/10 last:border-b-0"
+              className="flex flex-col md:flex-row gap-8 md:gap-16 py-10 border-b border-[#A07C4F]/10 last:border-b-0"
             >
-              <div className="md:w-[220px] shrink-0 font-mono">
-                <span className="text-[13px] tracking-widest uppercase text-[#A9A295] block mb-2">{label}</span>
-                <span className={`text-[13px] tracking-widest uppercase ${statusColor}`}>{status}</span>
+              <div className="md:w-[200px] shrink-0">
+                <span className="text-[13px] font-mono tracking-widest uppercase text-[#A9A295] block mb-2">{label}</span>
+                <span className={`text-[13px] font-mono tracking-widest uppercase ${statusColor}`}>{status}</span>
               </div>
-              <div className="flex-1 font-mono">
-                <h3 className="font-serif font-normal text-[#F5F2EA] mb-1 text-[24px] md:text-[28px] leading-tight">
+              <div className="flex-1">
+                <h3 className="font-normal text-[#F5F2EA] mb-1" style={{ fontSize: '24px', lineHeight: 1.2 }}>
                   {title}
                 </h3>
-                <p className="text-[13px] tracking-widest uppercase text-[#A9A295] mb-4">{location}</p>
-                <p className="text-[16px] md:text-[18px] text-[#D8D1C2] leading-relaxed max-w-2xl">{description}</p>
+                <p className="text-[13px] font-mono tracking-widest uppercase text-[#A9A295] mb-4">{location}</p>
+                <p className="text-[18px] text-[#D8D1C2] leading-relaxed max-w-2xl">{description}</p>
               </div>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* ── SCIENTIFIC HIGHLIGHTS (Typewriter Cards) ── */}
-      <section className="px-6 md:px-16 py-16 border-b border-[#F5F2EA]/10">
+      {/* ── SCIENTIFIC HIGHLIGHTS ── */}
+      <section className="px-6 md:px-16 py-16 border-b border-[#A07C4F]/10">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-[14px] font-mono tracking-widest uppercase text-[#E8C547] mb-12"
+          className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mb-12"
         >
           Scientific Publications &amp; Highlights
         </motion.h2>
-        <div className="grid md:grid-cols-2 gap-6 font-mono">
+        <div className="grid md:grid-cols-2 gap-6">
           {scientificHighlights.map(({ year, title, journal, description }, i) => (
             <motion.div
               key={title}
@@ -416,33 +398,33 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="border border-[#F5F2EA]/10 bg-[#1A1614]/60 p-8 hover:border-[#E8C547]/40 transition-colors duration-300"
+              className="border border-[#A07C4F]/10 bg-[#0a0a0a] p-8"
             >
               <div className="flex items-start justify-between mb-4">
-                <span className="text-[13px] tracking-widest uppercase text-[#A9A295]">{year}</span>
-                <span className="text-[12px] tracking-widest text-[#E8C547] text-right">{journal}</span>
+                <span className="text-[13px] font-mono tracking-widest uppercase text-[#A9A295]">{year}</span>
+                <span className="text-[12px] font-mono tracking-widest text-[#A07C4F] text-right">{journal}</span>
               </div>
-              <h3 className="font-serif font-normal text-[#F5F2EA] mb-3 text-[22px] md:text-[24px] leading-tight">
+              <h3 className="font-normal text-[#F5F2EA] mb-3" style={{ fontSize: '22px', lineHeight: 1.3 }}>
                 {title}
               </h3>
-              <p className="text-[15px] md:text-[16px] text-[#D8D1C2] leading-relaxed">{description}</p>
+              <p className="text-[18px] text-[#D8D1C2] leading-relaxed">{description}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* ── VALUES (Bento Grid cards) ── */}
-      <section className="px-6 md:px-16 py-16 border-b border-[#F5F2EA]/10">
+      {/* ── VALUES ── */}
+      <section className="px-6 md:px-16 py-16 border-b border-[#A07C4F]/10">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-[14px] font-mono tracking-widest uppercase text-[#E8C547] mb-12"
+          className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mb-12"
         >
           What We Stand For
         </motion.h2>
-        <div className="grid md:grid-cols-2 gap-6 font-mono">
+        <div className="grid md:grid-cols-2 gap-6">
           {values.map(({ number, title, description }, i) => (
             <motion.div
               key={number}
@@ -450,12 +432,12 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="flex gap-6 p-6 border border-[#F5F2EA]/10 bg-[#1A1614]/30 hover:border-[#E8C547]/30 transition-colors duration-300"
+              className="flex gap-6 p-6 border border-[#A07C4F]/10 bg-[#0a0a0a] hover:border-[#A07C4F]/30 transition-colors duration-300"
             >
-              <span className="text-[14px] tracking-widest text-[#E8C547] shrink-0 mt-1" aria-hidden="true">{number}</span>
+              <span className="text-[14px] font-mono tracking-widest text-[#A07C4F] shrink-0 mt-1" aria-hidden="true">{number}</span>
               <div>
-                <h3 className="font-serif font-normal text-[#F5F2EA] mb-2 text-[22px] md:text-[24px]">{title}</h3>
-                <p className="text-[15px] md:text-[16px] text-[#D8D1C2] leading-relaxed">{description}</p>
+                <h3 className="font-normal text-[#F5F2EA] mb-2" style={{ fontSize: '24px' }}>{title}</h3>
+                <p className="text-[18px] text-[#D8D1C2] leading-relaxed">{description}</p>
               </div>
             </motion.div>
           ))}
@@ -463,17 +445,17 @@ export default function AboutPage() {
       </section>
 
       {/* ── TEAM ── */}
-      <section className="px-6 md:px-16 py-16 border-b border-[#F5F2EA]/10">
+      <section className="px-6 md:px-16 py-16 border-b border-[#A07C4F]/10">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-[14px] font-mono tracking-widest uppercase text-[#E8C547] mb-12"
+          className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mb-12"
         >
           Our Research Team
         </motion.h2>
-        <div className="flex flex-col font-mono">
+        <div className="flex flex-col">
           {team.map(({ name, role, speciality, note }, i) => (
             <motion.div
               key={name}
@@ -481,48 +463,48 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="flex flex-col md:flex-row md:items-start gap-4 md:gap-16 py-8 border-b border-[#F5F2EA]/10 last:border-b-0"
+              className="flex flex-col md:flex-row md:items-start gap-4 md:gap-16 py-8 border-b border-[#A07C4F]/10 last:border-b-0"
             >
               <div className="md:w-[280px] shrink-0">
-                <p className="font-serif font-normal text-[#F5F2EA] text-[22px] md:text-[24px]">{name}</p>
-                <p className="text-[14px] tracking-widest uppercase text-[#E8C547] mt-1">{role}</p>
-                <p className="text-[13px] tracking-widest text-[#A9A295] mt-0.5">{speciality}</p>
+                <p className="font-normal text-[#F5F2EA]" style={{ fontSize: '24px' }}>{name}</p>
+                <p className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mt-1">{role}</p>
+                <p className="text-[13px] font-mono tracking-widest text-[#A9A295] mt-0.5">{speciality}</p>
               </div>
-              <p className="text-[16px] md:text-[18px] text-[#D8D1C2] leading-relaxed flex-1">{note}</p>
+              <p className="text-[18px] text-[#D8D1C2] leading-relaxed flex-1">{note}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* ── CTA ── */}
-      <section className="px-6 md:px-16 py-20 bg-[#1A1614]/10">
+      <section className="px-6 md:px-16 py-20">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="max-w-xl font-mono"
+          className="max-w-xl"
         >
-          <p className="text-[#D8D1C2] leading-[1.8] mb-8 text-[16px] md:text-[18px]">
+          <p className="text-[#D8D1C2] leading-[1.8] mb-8" style={{ fontSize: '18px' }}>
             Walk through 252 million years of natural history. Twelve permanent specimens, five wings, and the stories of creatures that shaped the world you're standing in.
           </p>
           <button
             onClick={() => navigate('/exhibits')}
             aria-label="Explore all exhibits"
-            className="group flex items-center gap-4 border border-[#E8C547]/20 bg-[#151210] px-8 py-4 hover:border-[#E8C547] hover:bg-[#E8C547]/10 text-[#D8D1C2] hover:text-[#F5F2EA] transition-all duration-300 cursor-pointer
+            className="group flex items-center gap-4 border border-[#A07C4F]/20 bg-[#0a0a0a] px-8 py-4 hover:border-[#A07C4F] hover:bg-[#A07C4F]/10 text-[#D8D1C2] hover:text-[#F5F2EA] transition-all duration-300 cursor-pointer
               focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
-            <span className="text-[14px] tracking-widest uppercase">Explore the Collection</span>
+            <span className="text-[14px] font-mono tracking-widest uppercase">Explore the Collection</span>
             <ArrowRight size={14} strokeWidth={1.5} className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
           </button>
         </motion.div>
       </section>
 
-      <div className="px-8 py-8 border-t border-[#F5F2EA]/15 flex flex-col md:flex-row md:items-center md:justify-between gap-2 bg-[#151210]">
-        <p className="font-mono tracking-widest text-[#A9A295] uppercase text-[12px]">
+      <div className="px-8 py-8 border-t border-[#A07C4F]/15 flex flex-col md:flex-row md:items-center md:justify-between gap-2 bg-[#050505]">
+        <p className="font-mono tracking-widest text-[#A9A295] uppercase" style={{ fontSize: '12px' }}>
           NATURAL HISTORY MUSEUM — EST. 1887 (C) 2026
         </p>
-        <p className="font-mono tracking-widest text-[#A9A295]/80 uppercase hidden md:block text-[12px]">
+        <p className="font-mono tracking-widest text-[#A9A295]/80 uppercase hidden md:block" style={{ fontSize: '12px' }}>
           312 SPECIMENS · 5 WINGS · 14,600 M² · 19 CURATORS
         </p>
       </div>
