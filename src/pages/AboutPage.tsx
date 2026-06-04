@@ -21,7 +21,7 @@ const museumWings = [
     number: '01',
     name: 'The Theropod Hall',
     era: 'Cretaceous & Jurassic',
-    description: 'Home to the museum\'s most dramatic specimens — bipedal carnivores from the agile Velociraptor to the incomprehensible scale of Tyrannosaurus Rex. The hall\'s centrepiece is a fully articulated T-Rex skeleton suspended mid-stride.',
+    description: "Home to the museum's most dramatic specimens — bipedal carnivores from the agile Velociraptor to the incomprehensible scale of Tyrannosaurus Rex. The hall's centrepiece is a fully articulated T-Rex skeleton suspended mid-stride.",
     highlights: ['Tyrannosaurus Rex', 'Spinosaurus', 'Allosaurus', 'Velociraptor'],
     area: '3,200 m²',
   },
@@ -29,7 +29,7 @@ const museumWings = [
     number: '02',
     name: 'The Sauropod Gallery',
     era: 'Jurassic',
-    description: 'A cathedral-like space designed to convey the true scale of Earth\'s largest land animals. Visitors walk beneath a life-size skeletal reconstruction of Brachiosaurus — its neck extending 16 metres above the gallery floor.',
+    description: "A cathedral-like space designed to convey the true scale of Earth's largest land animals. Visitors walk beneath a life-size skeletal reconstruction of Brachiosaurus — its neck extending 16 metres above the gallery floor.",
     highlights: ['Brachiosaurus', 'Diplodocus', 'Supersaurus (cast)', 'Argentinosaurus (scale model)'],
     area: '4,800 m²',
   },
@@ -45,7 +45,7 @@ const museumWings = [
     number: '04',
     name: 'Hadrosaur & Social Hall',
     era: 'Late Cretaceous',
-    description: 'Exploring the most socially complex dinosaurs ever discovered. The acoustic chamber recreates the resonant calls of Parasaurolophus, produced by modelling the exact internal geometry of the crest\'s nasal passages.',
+    description: "Exploring the most socially complex dinosaurs ever discovered. The acoustic chamber recreates the resonant calls of Parasaurolophus, produced by modelling the exact internal geometry of the crest's nasal passages.",
     highlights: ['Parasaurolophus', 'Pachycephalosaurus', 'Maiasaura', 'Edmontosaurus'],
     area: '1,900 m²',
   },
@@ -65,7 +65,7 @@ const scientificHighlights = [
     year: '2018',
     title: 'Spinosaurus Locomotion Study',
     journal: 'Nature, Vol. 554',
-    description: 'Our research team\'s analysis of Spinosaurus bone density confirmed for the first time that a large theropod dinosaur was adapted for sustained aquatic locomotion — rewriting our understanding of dinosaur ecology.',
+    description: "Our research team's analysis of Spinosaurus bone density confirmed for the first time that a large theropod dinosaur was adapted for sustained aquatic locomotion — rewriting our understanding of dinosaur ecology.",
   },
   {
     year: '2021',
@@ -96,7 +96,7 @@ const featuredDiscoveries = [
     location: 'Hell Creek Formation, Montana · Excavated 2022',
     description: 'A 94%-complete Tyrannosaurus Rex skeleton — the most complete specimen in our collection and only the third time a T-Rex skull has been found in full articulation. Currently undergoing preparation in our public lab.',
     status: 'In Preparation',
-    statusColor: 'text-amber-400',
+    statusColor: 'text-[#A07C4F]',
   },
   {
     id: 'diplodocus-new',
@@ -105,7 +105,7 @@ const featuredDiscoveries = [
     location: 'Uinta County, Wyoming · Field Season 2023–2025',
     description: 'An ongoing multi-year excavation in the Morrison Formation has yielded over 40 new specimens, including a near-complete juvenile Diplodocus — the first juvenile of this species to be found with a complete skull.',
     status: 'Active Excavation',
-    statusColor: 'text-emerald-400',
+    statusColor: 'text-[#8C3A2D]',
   },
   {
     id: 'chinese-partnership',
@@ -114,7 +114,7 @@ const featuredDiscoveries = [
     location: 'Djadokhta Formation, Mongolia · Partnership 2024',
     description: 'A five-year research agreement with the Mongolian Institute of Palaeontology grants our curators exclusive study access to a new cache of feathered theropod specimens — among the most significant finds of the decade.',
     status: 'Research Ongoing',
-    statusColor: 'text-blue-400',
+    statusColor: 'text-[#A07C4F]',
   },
 ];
 
@@ -156,9 +156,9 @@ const team = [
   },
   {
     name: 'Dr. Yuki Tanaka',
-    role: 'Specimen Restoration Lead',
+    role: 'Restoration Lead',
     speciality: 'Fossil Preparation & Conservation',
-    note: 'Developed the museum\'s landmark sand-preservation technique for fragile Jurassic bone material. Restored over 80 specimens to display-ready condition.',
+    note: "Developed the museum's landmark sand-preservation technique for fragile Jurassic bone material. Restored over 80 specimens to display-ready condition.",
   },
   {
     name: 'Dr. Amara Santos',
@@ -178,42 +178,42 @@ export default function AboutPage() {
   const navigate = useNavigate();
 
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-white">
+    <main className="min-h-screen bg-[#050505] text-[#F5F2EA]">
       <title>About — Natural History Museum</title>
 
       <PageHeader />
 
       {/* ── HERO ── */}
-      <section className="px-6 md:px-16 pt-12 pb-20 border-b border-gray-800">
+      <section className="px-6 md:px-16 pt-12 pb-20 border-b border-[#A07C4F]/10">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
         >
-          <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-gray-500 block mb-4">
+          <span className="text-[14px] font-mono tracking-[0.3em] uppercase text-[#A07C4F] block mb-4">
             [ 04 ] About the Museum
           </span>
           <h1
-            className="font-medium tracking-tight text-white"
-            style={{ fontSize: 'clamp(3rem, 6vw, 6.5rem)', lineHeight: 1.0 }}
+            className="font-normal tracking-tight text-[#F5F2EA]"
+            style={{ fontSize: 'clamp(3rem, 6.5vw, 6.5rem)', lineHeight: 1.05 }}
           >
             WE DON'T JUST<br />DISPLAY FOSSILS.<br />WE SHARE<br />EARTH'S STORY.
           </h1>
-          <p className="text-gray-500 mt-8 font-mono max-w-lg leading-relaxed" style={{ fontSize: '12px' }}>
+          <p className="text-[#D8D1C2] mt-8 font-mono max-w-lg leading-relaxed" style={{ fontSize: '18px' }}>
             Founded 1887. One of the world's foremost palaeontological institutions. 312 verified specimens. 19 active research curators. Five permanent wings.
           </p>
         </motion.div>
       </section>
 
       {/* ── COLLECTION STATISTICS ── */}
-      <section className="border-b border-gray-800" aria-label="Collection statistics">
+      <section className="border-b border-[#A07C4F]/10" aria-label="Collection statistics">
         <div className="px-6 md:px-16 pt-16 pb-8">
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-[10px] font-mono tracking-widest uppercase text-gray-500 mb-12"
+            className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mb-12"
           >
             Collection at a Glance
           </motion.h2>
@@ -226,36 +226,36 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.06 }}
-              className={`px-6 md:px-10 py-10 flex flex-col gap-1 border-b border-gray-800
-                ${i % 4 !== 3 ? 'md:border-r' : ''} ${i % 2 !== 1 ? 'border-r md:border-r-0' : ''}`}
+              className={`px-6 md:px-10 py-10 flex flex-col gap-1 border-b border-[#A07C4F]/10
+                ${i % 4 !== 3 ? 'md:border-r md:border-[#A07C4F]/10' : ''} ${i % 2 !== 1 ? 'border-r md:border-r-0 border-[#A07C4F]/10' : ''}`}
             >
               <span
-                className="font-medium tracking-tight text-white"
-                style={{ fontSize: 'clamp(1.8rem, 2.8vw, 2.8rem)', lineHeight: 1.1 }}
+                className="font-normal tracking-tight text-[#F5F2EA]"
+                style={{ fontSize: 'clamp(2rem, 3.5vw, 3.5rem)', lineHeight: 1.1 }}
               >
                 {value}
               </span>
-              <span className="text-[10px] font-mono tracking-widest uppercase text-gray-400">{label}</span>
-              <span className="text-[9px] font-mono text-gray-600">{sub}</span>
+              <span className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F]">{label}</span>
+              <span className="text-[13px] font-mono text-[#A9A295]">{sub}</span>
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* ── MISSION ── */}
-      <section className="grid md:grid-cols-2 border-b border-gray-800">
+      <section className="grid md:grid-cols-2 border-b border-[#A07C4F]/10">
         <motion.div
           initial={{ opacity: 0, x: -24 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="px-6 md:px-16 py-16 border-b md:border-b-0 md:border-r border-gray-800"
+          className="px-6 md:px-16 py-16 border-b md:border-b-0 md:border-r border-[#A07C4F]/10"
         >
-          <h2 className="text-[10px] font-mono tracking-widest uppercase text-gray-500 mb-6">Our Mission</h2>
-          <p className="text-gray-300 leading-[1.8] mb-6" style={{ fontSize: '14px' }}>
+          <h2 className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mb-6">Our Mission</h2>
+          <p className="text-[#D8D1C2] leading-[1.8] mb-6" style={{ fontSize: '18px' }}>
             The Natural History Museum exists to preserve, study, and communicate the story of life on Earth. Founded in 1887, we hold one of the most significant palaeontological collections in the world — over 312 catalogued specimens spanning the full breadth of the Mesozoic Era.
           </p>
-          <p className="text-gray-400 leading-[1.8]" style={{ fontSize: '13px' }}>
+          <p className="text-[#A9A295] leading-[1.8]" style={{ fontSize: '18px' }}>
             We believe that understanding deep time is one of the most important things a society can do. The history of life on Earth provides context for everything — the fragility of ecosystems, the mechanisms of extinction, and the extraordinary improbability of our own existence.
           </p>
         </motion.div>
@@ -266,25 +266,25 @@ export default function AboutPage() {
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
           className="px-6 md:px-16 py-16"
         >
-          <h2 className="text-[10px] font-mono tracking-widest uppercase text-gray-500 mb-6">History</h2>
-          <p className="text-gray-400 leading-[1.8]" style={{ fontSize: '13px' }}>
+          <h2 className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mb-6">History</h2>
+          <p className="text-[#D8D1C2] leading-[1.8]" style={{ fontSize: '18px' }}>
             Established during the great age of palaeontological discovery, the museum originally housed seven specimens donated by private collectors. Over 139 years, through fieldwork on every continent, academic partnerships, and international loans, that collection has grown to 312 verified specimens and tens of thousands of associated flora and invertebrate fossils.
           </p>
-          <p className="text-gray-500 leading-[1.8] mt-4" style={{ fontSize: '12px' }}>
+          <p className="text-[#A9A295] leading-[1.8] mt-4" style={{ fontSize: '18px' }}>
             The current permanent exhibition — "The Age of Dinosaurs" — opened in 2018 following a six-year renovation of the main fossil halls. A second phase of expansion, adding two new wings and a public preparation laboratory, is scheduled for completion in 2027.
           </p>
         </motion.div>
       </section>
 
       {/* ── MUSEUM WINGS ── */}
-      <section className="border-b border-gray-800">
+      <section className="border-b border-[#A07C4F]/10">
         <div className="px-6 md:px-16 pt-16 pb-8">
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-[10px] font-mono tracking-widest uppercase text-gray-500 mb-2"
+            className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mb-2"
           >
             Five Permanent Wings
           </motion.h2>
@@ -293,8 +293,8 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-gray-600 font-mono"
-            style={{ fontSize: '11px' }}
+            className="text-[#A9A295] font-mono"
+            style={{ fontSize: '14px' }}
           >
             14,600 m² of permanent exhibition space
           </motion.p>
@@ -307,27 +307,27 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, delay: i * 0.08 }}
-              className="border-t border-gray-800 px-6 md:px-16 py-10 grid md:grid-cols-[auto_1fr_auto] gap-8 md:gap-16"
+              className="border-t border-[#A07C4F]/10 px-6 md:px-16 py-10 grid md:grid-cols-[auto_1fr_auto] gap-8 md:gap-16"
             >
               {/* Number */}
               <div className="shrink-0">
-                <span className="text-[10px] font-mono tracking-widest text-gray-600">{wing.number}</span>
+                <span className="text-[14px] font-mono tracking-widest text-[#A07C4F]">{wing.number}</span>
               </div>
               {/* Content */}
               <div>
                 <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-6 mb-4">
                   <h3
-                    className="font-medium tracking-tight text-white"
-                    style={{ fontSize: 'clamp(1.2rem, 2vw, 1.7rem)', lineHeight: 1.2 }}
+                    className="font-normal tracking-tight text-[#F5F2EA]"
+                    style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', lineHeight: 1.2 }}
                   >
                     {wing.name}
                   </h3>
-                  <span className="text-[9px] font-mono tracking-widest uppercase text-gray-600">{wing.era}</span>
+                  <span className="text-[13px] font-mono tracking-widest uppercase text-[#A9A295]">{wing.era}</span>
                 </div>
-                <p className="text-[12px] text-gray-400 leading-relaxed mb-6 max-w-2xl">{wing.description}</p>
+                <p className="text-[18px] text-[#D8D1C2] leading-relaxed mb-6 max-w-2xl">{wing.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {wing.highlights.map(h => (
-                    <span key={h} className="text-[9px] font-mono tracking-widest uppercase text-gray-600 border border-gray-800 px-2 py-1">
+                    <span key={h} className="text-[13px] font-mono tracking-widest uppercase text-[#A9A295] border border-[#A07C4F]/10 px-2 py-1 bg-[#0a0a0a]">
                       {h}
                     </span>
                   ))}
@@ -335,7 +335,7 @@ export default function AboutPage() {
               </div>
               {/* Area */}
               <div className="shrink-0 text-right hidden md:block">
-                <span className="text-[10px] font-mono tracking-widest text-gray-600">{wing.area}</span>
+                <span className="text-[14px] font-mono tracking-widest text-[#A07C4F]">{wing.area}</span>
               </div>
             </motion.div>
           ))}
@@ -343,13 +343,13 @@ export default function AboutPage() {
       </section>
 
       {/* ── FEATURED DISCOVERIES ── */}
-      <section className="px-6 md:px-16 py-16 border-b border-gray-800">
+      <section className="px-6 md:px-16 py-16 border-b border-[#A07C4F]/10">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-[10px] font-mono tracking-widest uppercase text-gray-500 mb-12"
+          className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mb-12"
         >
           Recent Discoveries &amp; Acquisitions
         </motion.h2>
@@ -361,18 +361,18 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="flex flex-col md:flex-row gap-8 md:gap-16 py-10 border-b border-gray-800 last:border-b-0"
+              className="flex flex-col md:flex-row gap-8 md:gap-16 py-10 border-b border-[#A07C4F]/10 last:border-b-0"
             >
               <div className="md:w-[200px] shrink-0">
-                <span className="text-[9px] font-mono tracking-widest uppercase text-gray-600 block mb-2">{label}</span>
-                <span className={`text-[9px] font-mono tracking-widest uppercase ${statusColor}`}>{status}</span>
+                <span className="text-[13px] font-mono tracking-widest uppercase text-[#A9A295] block mb-2">{label}</span>
+                <span className={`text-[13px] font-mono tracking-widest uppercase ${statusColor}`}>{status}</span>
               </div>
               <div className="flex-1">
-                <h3 className="font-medium text-white mb-1" style={{ fontSize: 'clamp(1rem, 1.8vw, 1.5rem)', lineHeight: 1.2 }}>
+                <h3 className="font-normal text-[#F5F2EA] mb-1" style={{ fontSize: '24px', lineHeight: 1.2 }}>
                   {title}
                 </h3>
-                <p className="text-[10px] font-mono tracking-widest uppercase text-gray-600 mb-4">{location}</p>
-                <p className="text-[12px] text-gray-400 leading-relaxed max-w-2xl">{description}</p>
+                <p className="text-[13px] font-mono tracking-widest uppercase text-[#A9A295] mb-4">{location}</p>
+                <p className="text-[18px] text-[#D8D1C2] leading-relaxed max-w-2xl">{description}</p>
               </div>
             </motion.div>
           ))}
@@ -380,13 +380,13 @@ export default function AboutPage() {
       </section>
 
       {/* ── SCIENTIFIC HIGHLIGHTS ── */}
-      <section className="px-6 md:px-16 py-16 border-b border-gray-800">
+      <section className="px-6 md:px-16 py-16 border-b border-[#A07C4F]/10">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-[10px] font-mono tracking-widest uppercase text-gray-500 mb-12"
+          className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mb-12"
         >
           Scientific Publications &amp; Highlights
         </motion.h2>
@@ -398,29 +398,29 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="border border-gray-800 bg-[#0d0d0d] p-8"
+              className="border border-[#A07C4F]/10 bg-[#0a0a0a] p-8"
             >
               <div className="flex items-start justify-between mb-4">
-                <span className="text-[10px] font-mono tracking-widest uppercase text-gray-600">{year}</span>
-                <span className="text-[9px] font-mono tracking-widest text-gray-700 text-right">{journal}</span>
+                <span className="text-[13px] font-mono tracking-widest uppercase text-[#A9A295]">{year}</span>
+                <span className="text-[12px] font-mono tracking-widest text-[#A07C4F] text-right">{journal}</span>
               </div>
-              <h3 className="font-medium text-white mb-3" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.3rem)', lineHeight: 1.3 }}>
+              <h3 className="font-normal text-[#F5F2EA] mb-3" style={{ fontSize: '22px', lineHeight: 1.3 }}>
                 {title}
               </h3>
-              <p className="text-[11px] text-gray-500 leading-relaxed">{description}</p>
+              <p className="text-[18px] text-[#D8D1C2] leading-relaxed">{description}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* ── VALUES ── */}
-      <section className="px-6 md:px-16 py-16 border-b border-gray-800">
+      <section className="px-6 md:px-16 py-16 border-b border-[#A07C4F]/10">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-[10px] font-mono tracking-widest uppercase text-gray-500 mb-12"
+          className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mb-12"
         >
           What We Stand For
         </motion.h2>
@@ -432,12 +432,12 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="flex gap-6 p-6 border border-gray-800 bg-[#111] hover:border-gray-700 transition-colors duration-300"
+              className="flex gap-6 p-6 border border-[#A07C4F]/10 bg-[#0a0a0a] hover:border-[#A07C4F]/30 transition-colors duration-300"
             >
-              <span className="text-[10px] font-mono tracking-widest text-gray-600 shrink-0 mt-1" aria-hidden="true">{number}</span>
+              <span className="text-[14px] font-mono tracking-widest text-[#A07C4F] shrink-0 mt-1" aria-hidden="true">{number}</span>
               <div>
-                <h3 className="font-medium text-white mb-2" style={{ fontSize: '15px' }}>{title}</h3>
-                <p className="text-[12px] text-gray-400 leading-relaxed">{description}</p>
+                <h3 className="font-normal text-[#F5F2EA] mb-2" style={{ fontSize: '24px' }}>{title}</h3>
+                <p className="text-[18px] text-[#D8D1C2] leading-relaxed">{description}</p>
               </div>
             </motion.div>
           ))}
@@ -445,13 +445,13 @@ export default function AboutPage() {
       </section>
 
       {/* ── TEAM ── */}
-      <section className="px-6 md:px-16 py-16 border-b border-gray-800">
+      <section className="px-6 md:px-16 py-16 border-b border-[#A07C4F]/10">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-[10px] font-mono tracking-widest uppercase text-gray-500 mb-12"
+          className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mb-12"
         >
           Our Research Team
         </motion.h2>
@@ -463,14 +463,14 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="flex flex-col md:flex-row md:items-start gap-4 md:gap-16 py-8 border-b border-gray-800 last:border-b-0"
+              className="flex flex-col md:flex-row md:items-start gap-4 md:gap-16 py-8 border-b border-[#A07C4F]/10 last:border-b-0"
             >
               <div className="md:w-[280px] shrink-0">
-                <p className="font-medium text-white" style={{ fontSize: '15px' }}>{name}</p>
-                <p className="text-[10px] font-mono tracking-widest uppercase text-gray-500 mt-1">{role}</p>
-                <p className="text-[9px] font-mono tracking-widest text-gray-700 mt-0.5">{speciality}</p>
+                <p className="font-normal text-[#F5F2EA]" style={{ fontSize: '24px' }}>{name}</p>
+                <p className="text-[14px] font-mono tracking-widest uppercase text-[#A07C4F] mt-1">{role}</p>
+                <p className="text-[13px] font-mono tracking-widest text-[#A9A295] mt-0.5">{speciality}</p>
               </div>
-              <p className="text-[12px] text-gray-400 leading-relaxed flex-1">{note}</p>
+              <p className="text-[18px] text-[#D8D1C2] leading-relaxed flex-1">{note}</p>
             </motion.div>
           ))}
         </div>
@@ -485,26 +485,26 @@ export default function AboutPage() {
           transition={{ duration: 0.7, ease: 'easeOut' }}
           className="max-w-xl"
         >
-          <p className="text-gray-400 leading-[1.8] mb-8" style={{ fontSize: '14px' }}>
+          <p className="text-[#D8D1C2] leading-[1.8] mb-8" style={{ fontSize: '18px' }}>
             Walk through 252 million years of natural history. Twelve permanent specimens, five wings, and the stories of creatures that shaped the world you're standing in.
           </p>
           <button
             onClick={() => navigate('/exhibits')}
             aria-label="Explore all exhibits"
-            className="group flex items-center gap-4 border border-gray-600 px-8 py-4 hover:border-white hover:bg-white hover:text-black transition-all duration-300
+            className="group flex items-center gap-4 border border-[#A07C4F]/20 bg-[#0a0a0a] px-8 py-4 hover:border-[#A07C4F] hover:bg-[#A07C4F]/10 text-[#D8D1C2] hover:text-[#F5F2EA] transition-all duration-300 cursor-pointer
               focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
-            <span className="text-[11px] font-mono tracking-widest uppercase">Explore the Collection</span>
+            <span className="text-[14px] font-mono tracking-widest uppercase">Explore the Collection</span>
             <ArrowRight size={14} strokeWidth={1.5} className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
           </button>
         </motion.div>
       </section>
 
-      <div className="px-8 py-8 border-t border-gray-800 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-        <p className="font-mono tracking-widest text-gray-600 uppercase" style={{ fontSize: '10px' }}>
+      <div className="px-8 py-8 border-t border-[#A07C4F]/15 flex flex-col md:flex-row md:items-center md:justify-between gap-2 bg-[#050505]">
+        <p className="font-mono tracking-widest text-[#A9A295] uppercase" style={{ fontSize: '12px' }}>
           NATURAL HISTORY MUSEUM — EST. 1887 (C) 2026
         </p>
-        <p className="font-mono tracking-widest text-gray-700 uppercase hidden md:block" style={{ fontSize: '10px' }}>
+        <p className="font-mono tracking-widest text-[#A9A295]/80 uppercase hidden md:block" style={{ fontSize: '12px' }}>
           312 SPECIMENS · 5 WINGS · 14,600 M² · 19 CURATORS
         </p>
       </div>

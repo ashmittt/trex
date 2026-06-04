@@ -29,7 +29,7 @@ export default function NHMLogo() {
       <svg
         viewBox="0 0 840 100"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full fill-[#111]"
+        className="w-full fill-[#F5F2EA]"
         aria-label="Natural History Museum"
       >
         {/* Letter N — translate(0,0) */}

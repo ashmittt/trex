@@ -54,7 +54,7 @@ export default function CollectionSection({
             transition={{ duration: 0.9, ease: 'easeOut' }}
             className="font-medium tracking-tight text-white"
             style={{
-              fontSize: 'clamp(1.8rem, 4vw, 4rem)',
+              fontSize: 'clamp(2.8rem, 5vw, 5rem)',
               lineHeight: 1.15,
               maxWidth: '700px',
             }}
@@ -90,7 +90,7 @@ export default function CollectionSection({
           >
             <p
               className="font-mono tracking-widest text-gray-400 uppercase leading-relaxed"
-              style={{ fontSize: '9px' }}
+              style={{ fontSize: '13px' }}
             >
               WE DON'T JUST DISPLAY FOSSILS<br />
               WE SHARE EARTH'S STORY
@@ -104,7 +104,7 @@ export default function CollectionSection({
                   className="px-5 py-2 rounded-full border border-gray-600 font-mono tracking-widest uppercase text-gray-300
                     hover:bg-white hover:text-black hover:border-white transition-all duration-300
                     focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                  style={{ fontSize: '9px' }}
+                  style={{ fontSize: '13px' }}
                 >
                   {tag}
                 </button>
@@ -146,16 +146,16 @@ export default function CollectionSection({
                   exit={{ y: -14 }}
                   transition={{ duration: 0.35, ease: 'easeInOut' }}
                   className="block font-mono tracking-widest uppercase text-[#888] absolute"
-                  style={{ fontSize: '10px' }}
+                  style={{ fontSize: '12px' }}
                 >
                   {padded}
                 </motion.span>
               </AnimatePresence>
             </div>
-            <span className="font-mono text-[#333]" style={{ fontSize: '10px' }}>/</span>
+            <span className="font-mono text-[#333]" style={{ fontSize: '12px' }}>/</span>
             <span
               className="font-mono tracking-widest uppercase text-[#888]"
-              style={{ fontSize: '10px' }}
+              style={{ fontSize: '12px' }}
             >
               05
             </span>
@@ -168,7 +168,7 @@ export default function CollectionSection({
           <div className="border-b border-gray-800 px-8 py-6 flex items-center justify-between">
             <p
               className="font-mono text-gray-400 tracking-widest"
-              style={{ fontSize: '10px' }}
+              style={{ fontSize: '12px' }}
             >
               Explore the past. Understand the present.
             </p>
@@ -180,7 +180,7 @@ export default function CollectionSection({
                 exit={{ opacity: 0, y: -4 }}
                 transition={{ duration: 0.25 }}
                 className="font-mono text-gray-400 tracking-widest"
-                style={{ fontSize: '10px' }}
+                style={{ fontSize: '12px' }}
               >
                 Chapter {padded}
               </motion.p>
@@ -206,7 +206,7 @@ export default function CollectionSection({
                 >
                   <span
                     className="font-medium tracking-tight"
-                    style={{ fontSize: 'clamp(1.3rem, 2vw, 2rem)' }}
+                    style={{ fontSize: 'clamp(1.8rem, 3vw, 2.8rem)' }}
                   >
                     {chapter.name}
                   </span>
@@ -242,7 +242,7 @@ export default function CollectionSection({
       <div className="px-8 py-8 bg-[#0a0a0a]">
         <p
           className="font-mono tracking-widest text-gray-500 uppercase"
-          style={{ fontSize: '10px' }}
+          style={{ fontSize: '12px' }}
         >
           DIGGING INTO OUR PLANET'S PAST
         </p>

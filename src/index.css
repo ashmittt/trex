@@ -14,6 +14,15 @@
   }
 }
 
+:root {
+  --bg-color: #050505;
+  --text-primary: #F5F2EA;
+  --text-secondary: #D8D1C2;
+  --text-muted: #A9A295;
+  --accent: #A07C4F;
+  --accent-secondary: #8C3A2D;
+}
+
 *,
 *::before,
 *::after {
@@ -22,11 +31,12 @@
 
 html {
   overflow-x: hidden;
+  background-color: var(--bg-color);
 }
 
 body {
-  background-color: #fcfcfc;
-  color: #111;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
   font-family: var(--font-sans);
   overflow-x: hidden;
   margin: 0;
@@ -34,8 +44,8 @@ body {
 }
 
 ::selection {
-  background-color: #111;
-  color: #fcfcfc;
+  background-color: var(--accent);
+  color: var(--bg-color);
 }
 
 /* Focus visible ring — keyboard navigation */

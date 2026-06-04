@@ -27,7 +27,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -20, opacity: 0 }}
           transition={{ duration: 0.25, ease: 'easeOut' }}
-          className="md:hidden bg-[#fcfcfc] border-b border-gray-200 shadow-xl z-50 px-6 py-8"
+          className="md:hidden bg-[#050505] border-b border-[#A07C4F]/20 shadow-xl z-50 px-6 py-8"
         >
           <nav className="flex flex-col space-y-6">
             {navLinks.map(({ label, to }) => (
@@ -35,7 +35,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 key={label}
                 to={to}
                 onClick={onClose}
-                className="text-sm font-mono tracking-[0.2em] uppercase text-gray-800 hover:text-black hover:underline transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="text-lg font-mono tracking-[0.2em] uppercase text-[#D8D1C2] hover:text-[#F5F2EA] hover:underline transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5F2EA]"
               >
                 {label}
               </Link>

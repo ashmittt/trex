@@ -3,12 +3,16 @@ import Header from '../components/Header';
 import MobileMenu from '../components/MobileMenu';
 import HeroVideo from '../components/HeroVideo';
 import HeroContent from '../components/HeroContent';
-import ExploreSection from '../components/ExploreSection';
-import CollectionSection from '../components/CollectionSection';
+import EnterTheHall from '../components/EnterTheHall';
+import TheropodHall from '../components/TheropodHall';
+import DiscoveryStory from '../components/DiscoveryStory';
+import ScientificContext from '../components/ScientificContext';
+import SupportingSpecies from '../components/SupportingSpecies';
+import TimelineExtinction from '../components/TimelineExtinction';
+import MuseumArchive from '../components/MuseumArchive';
 
 export default function HomePage() {
   const [showVideo, setShowVideo] = useState(false);
-  const [activeChapter, setActiveChapter] = useState(2);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Reveal video after 2800ms
@@ -17,17 +21,9 @@ export default function HomePage() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Auto-cycle chapters every 3500ms
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveChapter((prev) => (prev + 1) % 5);
-    }, 3500);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div className="relative">
-      {/* ── SECTION 1: HERO ── */}
+    <div className="relative bg-[#050505] text-[#F5F2EA] min-h-screen">
+      {/* ── STAGE 1: ARRIVAL (HERO) ── */}
       <section
         id="hero"
         className="relative w-full min-h-screen flex flex-col overflow-hidden"
@@ -51,14 +47,26 @@ export default function HomePage() {
         <HeroContent />
       </section>
 
-      {/* ── SECTION 2: EXPLORE OUR WORLD ── */}
-      <ExploreSection />
+      {/* ── STAGE 2: ENTER THE HALL ── */}
+      <EnterTheHall />
 
-      {/* ── SECTION 3: ANCIENT COLLECTION ── */}
-      <CollectionSection
-        activeChapter={activeChapter}
-        setActiveChapter={setActiveChapter}
-      />
+      {/* ── STAGE 3: ENCOUNTER THE SPECIMEN ── */}
+      <TheropodHall />
+
+      {/* ── STAGE 4: DISCOVERY STORY ── */}
+      <DiscoveryStory />
+
+      {/* ── STAGE 5: SCIENTIFIC CONTEXT ── */}
+      <ScientificContext />
+
+      {/* ── STAGE 6: SUPPORTING SPECIES ── */}
+      <SupportingSpecies />
+
+      {/* ── STAGE 7: TIMELINE & EXTINCTION ── */}
+      <TimelineExtinction />
+
+      {/* ── STAGE 8: MUSEUM ARCHIVE ── */}
+      <MuseumArchive />
     </div>
   );
 }

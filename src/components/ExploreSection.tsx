@@ -43,10 +43,10 @@ export default function ExploreSection() {
         viewport={{ once: true, margin: '-60px' }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className="flex items-center gap-2 mb-12"
-        style={{ fontSize: '10px' }}
+        style={{ fontSize: '14px' }}
       >
         <span className="font-mono tracking-[0.2em] text-gray-500">[ 02 ]</span>
-        <span className="font-mono tracking-[0.2em] uppercase font-bold text-gray-900 md:text-[11px]">
+        <span className="font-mono tracking-[0.2em] uppercase font-bold text-gray-900 md:text-[15px]">
           Explore Our World
         </span>
       </motion.div>
@@ -59,7 +59,7 @@ export default function ExploreSection() {
         transition={{ duration: 0.9, ease: 'easeOut' }}
         className="font-medium tracking-tight text-[#111] text-center px-6 mb-10 md:mb-16"
         style={{
-          fontSize: 'clamp(2rem, 4.2vw, 4.2rem)',
+          fontSize: 'clamp(3rem, 5.5vw, 5.5rem)',
           lineHeight: 1.1,
           maxWidth: '1000px',
         }}
@@ -84,7 +84,7 @@ export default function ExploreSection() {
             id={`pill-${label.toLowerCase().replace(' ', '-')}`}
             onClick={() => navigate(to)}
             aria-label={label}
-            className="group flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-300 text-[11px] font-medium uppercase tracking-wider bg-white/50 backdrop-blur-sm text-gray-800
+            className="group flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-300 text-[15px] font-medium uppercase tracking-wider bg-white/50 backdrop-blur-sm text-gray-800
               hover:border-black hover:bg-black hover:text-white transition-all duration-300 cursor-pointer
               focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
@@ -106,13 +106,13 @@ export default function ExploreSection() {
         <div className="hidden md:flex justify-between">
           <span
             className="font-mono tracking-widest uppercase text-gray-500 font-medium"
-            style={{ fontSize: '10px' }}
+            style={{ fontSize: '12px' }}
           >
             WE DON'T JUST TELL STORIES.
           </span>
           <span
             className="font-mono tracking-widest uppercase text-gray-500 font-medium"
-            style={{ fontSize: '10px' }}
+            style={{ fontSize: '13px' }}
           >
             PALEONTOLOGY (C) 2026
           </span>
