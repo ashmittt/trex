@@ -3,81 +3,69 @@ import Header from '../components/Header';
 import MobileMenu from '../components/MobileMenu';
 import HeroVideo from '../components/HeroVideo';
 import ArrivalSection from '../components/ArrivalSection';
-import TriassicSection from '../components/TriassicSection';
-import JurassicSection from '../components/JurassicSection';
+import StorySection from '../components/StorySection';
+import PaleontologyArchive from '../components/PaleontologyArchive';
+import GeologicalTimeline from '../components/GeologicalTimeline';
 import CretaceousSection from '../components/CretaceousSection';
-import EcosystemsSection from '../components/EcosystemsSection';
-import EvolutionSection from '../components/EvolutionSection';
-import AgeOfGiantsSection from '../components/AgeOfGiantsSection';
-import ExtinctionSection from '../components/ExtinctionSection';
-import LegacySection from '../components/LegacySection';
+import Footer from '../components/Footer';
+
+// Silent behavioral tracking hook
+import useBehavioralAnalytics from '../hooks/useBehavioralAnalytics';
 
 export default function HomePage() {
   const [showVideo, setShowVideo] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Reveal video after 2800ms
+  // 1. Silent telemetry tracking hook call
+  useBehavioralAnalytics();
+
   useEffect(() => {
     const timer = setTimeout(() => setShowVideo(true), 2800);
     return () => clearTimeout(timer);
   }, []);
 
   const handleStartJourney = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: 'smooth',
-    });
+    const el = document.getElementById('story');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <div className="relative bg-[#050505] text-[#F5F2EA] min-h-screen">
-      {/* ── STAGE 1: ARRIVAL (HERO) ── */}
+    <div className="relative bg-[#050505] text-[#F5F2EA] min-h-screen font-sans selection:bg-[#C4903A]/20 selection:text-[#F5F2EA]">
+      
+      {/* ── STAGE 01: ARRIVAL (HERO) ── */}
       <section
         id="hero"
         className="relative w-full min-h-screen flex flex-col overflow-hidden"
       >
-        {/* Background video layer */}
         <HeroVideo showVideo={showVideo} />
-
-        {/* Header + logo */}
         <Header
           isMobileMenuOpen={isMobileMenuOpen}
           onMenuToggle={() => setIsMobileMenuOpen((v) => !v)}
         />
-
-        {/* Mobile menu overlay */}
         <MobileMenu
           isOpen={isMobileMenuOpen}
           onClose={() => setIsMobileMenuOpen(false)}
         />
-
-        {/* Hero text content */}
         <ArrivalSection onStartJourney={handleStartJourney} />
       </section>
 
-      {/* ── STAGE 2: TRIASSIC ERA ── */}
-      <TriassicSection />
+      {/* ── STAGE 02: EDITORIAL NARRATIVE (WHY T-REX MATTERS) ── */}
+      <StorySection />
 
-      {/* ── STAGE 3: JURASSIC ERA ── */}
-      <JurassicSection />
+      {/* ── STAGE 03: COLLECTION (MUSEUM SPECIMENS) ── */}
+      <PaleontologyArchive />
 
-      {/* ── STAGE 4: CRETACEOUS ERA ── */}
+      {/* ── STAGE 04: TIMELINE (GEOLOGICAL SCALE SPINE) ── */}
+      <GeologicalTimeline />
+
+      {/* ── STAGE 05: IMMERSIVE DISCOVERY (K-PG BOUNDARY CATACLYSM) ── */}
       <CretaceousSection />
 
-      {/* ── STAGE 5: ECOSYSTEMS OF THE MESOZOIC ── */}
-      <EcosystemsSection />
+      {/* ── STAGE 06: RESTRAINED MUSEUM FOOTER ── */}
+      <Footer />
 
-      {/* ── STAGE 6: EVOLUTION ── */}
-      <EvolutionSection />
-
-      {/* ── STAGE 7: THE AGE OF GIANTS ── */}
-      <AgeOfGiantsSection />
-
-      {/* ── STAGE 8: EXTINCTION EVENT ── */}
-      <ExtinctionSection />
-
-      {/* ── STAGE 9: LEGACY ── */}
-      <LegacySection />
     </div>
   );
 }

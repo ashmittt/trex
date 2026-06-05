@@ -30,7 +30,7 @@ export default function PageHeader({ backLabel, backTo = '/' }: PageHeaderProps)
       {backLabel && (
         <button
           onClick={() => navigate(backTo)}
-          className="flex items-center gap-2 mb-4 text-[#A9A295] hover:text-[#F5F2EA] transition-colors duration-200 group"
+          className="flex items-center gap-2 mb-4 text-gray-500 hover:text-black transition-colors duration-200 group"
           aria-label={`Back to ${backLabel}`}
         >
           <ArrowLeft
@@ -38,7 +38,7 @@ export default function PageHeader({ backLabel, backTo = '/' }: PageHeaderProps)
             strokeWidth={1.5}
             className="group-hover:-translate-x-0.5 transition-transform duration-200"
           />
-          <span className="text-[14px] font-mono tracking-[0.2em] uppercase">
+          <span className="text-[10px] font-mono tracking-[0.2em] uppercase">
             {backLabel}
           </span>
         </button>
@@ -51,12 +51,12 @@ export default function PageHeader({ backLabel, backTo = '/' }: PageHeaderProps)
 
       {/* Sub-nav */}
       <div className="flex justify-end items-center mt-6 gap-6">
-        <nav className="hidden md:flex gap-6" style={{ fontSize: '14px' }}>
+        <nav className="hidden md:flex gap-6" style={{ fontSize: '10px' }}>
           {navLinks.map(({ label, to }) => (
             <Link
               key={label}
               to={to}
-              className="font-mono tracking-[0.2em] uppercase text-[#D8D1C2] hover:text-[#F5F2EA] hover:underline transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5F2EA]"
+              className="font-mono tracking-[0.2em] uppercase text-gray-800 hover:text-black hover:underline transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               {label}
             </Link>

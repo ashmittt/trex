@@ -1,93 +1,133 @@
+import { motion } from 'motion/react';
+import { useAnalytics } from '../context/AnalyticsContext';
 
 export default function TriassicSection() {
+  const { trackCustomEvent } = useAnalytics();
+
+  const handleMapHover = () => {
+    trackCustomEvent('map_inspection', 'Inspected Pangaea Rift System Map specimen');
+  };
+
   return (
-    <section className="relative min-h-screen bg-[#14110F] text-[#F5F2EA] flex flex-col justify-center border-t border-[#F5F2EA]/10 p-6 md:p-16 overflow-hidden">
-      {/* Background Watermark */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none opacity-[0.02] text-mega font-bold uppercase text-[#FAF8F5] z-0">
-        Pangaea
+    <section
+      id="triassic"
+      className="relative min-h-screen bg-[#050505] text-[#F5F2EA] flex flex-col justify-center py-32 px-8 md:px-24 border-t border-[#F5F2EA]/10 overflow-hidden"
+    >
+      {/* Environmental background layer */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/images/triassic.png"
+          alt="Triassic volcanic wilderness"
+          className="w-full h-full object-cover opacity-20 filter grayscale-[20%]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent z-1" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505] z-1" />
       </div>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-        {/* Left Column: Narrative */}
-        <div className="lg:col-span-6 flex flex-col gap-6">
-          <div className="flex items-center gap-3">
-            <span className="text-[13px] font-mono tracking-[0.3em] text-[#D35400] uppercase">
-              [ 02 // 252 MA TO 201 MA ]
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10 w-full">
+        
+        {/* Left Column: Curatorial Museum Plaque (Double-Bezel Architecture) */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="lg:col-span-6 p-2 bg-[#0D0B08]/40 border border-[#C4903A]/20 rounded-[2rem] shadow-2xl relative group"
+        >
+          {/* Inner Core */}
+          <div className="bg-[#0D0B08] border border-white/5 rounded-[calc(2rem-8px)] p-8 md:p-10 shadow-[inset_0_1px_2px_rgba(255,255,255,0.1)] flex flex-col gap-6">
+            {/* Registry label */}
+            <div className="flex justify-between items-center border-b border-[#F5F2EA]/15 pb-4">
+              <span className="font-mono text-xs text-[#C4903A] uppercase tracking-[0.2em] font-semibold">
+                EXHIBIT REF: TRI-252
+              </span>
+              <span className="font-mono text-xs text-[#E8E0D0] uppercase tracking-widest">
+                WING 1 // GALLERY A
+              </span>
+            </div>
+
+            <span className="font-mono text-xs tracking-[0.3em] text-[#C4903A] uppercase mt-2">
+              [ Stage 03 // 252 Ma to 201 Ma ]
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#D35400]" />
-            <span className="text-[13px] font-mono tracking-widest text-[#FAF8F5]/50 uppercase">
-              TRIASSIC PERIOD
-            </span>
-          </div>
 
-          <h2
-            className="font-serif font-normal tracking-tight text-[#FAF8F5] leading-none"
-            style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}
-          >
-            Out of the <br />
-            <span className="font-cursive text-yellow-400 lowercase tracking-normal text-4xl md:text-7xl block mt-2">Ashes</span>
-          </h2>
+            <h2
+              className="font-serif font-light tracking-tight text-[#F5F2EA] leading-none uppercase"
+              style={{ fontSize: 'clamp(2.2rem, 4vw, 4rem)' }}
+            >
+              Out of the <br />
+              <span className="font-serif italic text-[#C4903A] block mt-2">Ashes</span>
+            </h2>
 
-          <p className="text-[19px] font-serif text-[#D8D1C2] leading-relaxed italic max-w-lg">
-            "Earth recovering from the Great Dying. Pangaea was dry, hot, and dominated by rifts of volcanic fire. But life found a foothold."
-          </p>
-
-          <p className="text-[17px] text-[#FAF8F5]/80 leading-relaxed max-w-lg">
-            Following the Permian mass extinction—which wiped out 96% of marine life—the Triassic period witnessed the slow, fragile rebirth of the biosphere. Continents were fused into the supercontinent Pangaea. In the dry interior deserts, the first true dinosaurs emerged: small, nimble, and bipedal, running beneath the shadows of massive crocodile ancestors.
-          </p>
-
-          {/* Triassic Stats Panel */}
-          <div className="grid grid-cols-2 gap-4 border-t border-[#F5F2EA]/15 pt-6 mt-4">
-            <div>
-              <span className="text-[12px] font-mono text-[#D35400] block uppercase tracking-wider">Atmospheric CO₂</span>
-              <span className="text-[18px] font-mono text-[#FAF8F5]">1,500 ppm (5× Modern)</span>
-            </div>
-            <div>
-              <span className="text-[12px] font-mono text-[#D35400] block uppercase tracking-wider">Global Temp</span>
-              <span className="text-[18px] font-mono text-[#FAF8F5]">+10°C relative to today</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Column: Scientific Drawing/Field Notes */}
-        <div className="lg:col-span-6 flex flex-col gap-6 bg-[#1A1614] border border-[#F5F2EA]/10 p-8 md:p-12 relative overflow-hidden">
-          {/* Grid lines */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#F5F2EA_1px,transparent_1px),linear-gradient(to_bottom,#F5F2EA_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-[0.02] pointer-events-none" />
-
-          <div className="flex justify-between items-start border-b border-[#F5F2EA]/10 pb-4 mb-4">
-            <span className="text-[12px] font-mono text-[#FAF8F5]/40 uppercase tracking-widest">
-              Field Specimen Annotation // TRI-252
-            </span>
-            <span className="text-[12px] font-mono text-yellow-400 font-bold uppercase">
-              SYS: ARCHOSAURIA
-            </span>
-          </div>
-
-          <div className="h-48 flex items-center justify-center border border-[#F5F2EA]/5 bg-black/35 relative overflow-hidden">
-            {/* Styled silhouette diagram */}
-            <div className="text-[11px] font-mono text-red-500/70 absolute top-4 left-4 uppercase tracking-widest">
-              Lystrosaurus / Coelophysis Line
-            </div>
-            {/* We place a nice running vector track or diagram text */}
-            <div className="font-mono text-[14px] text-yellow-400/80 tracking-widest text-center select-none leading-relaxed">
-              [ PANGAEA SUPERCONTINENT MAP ] <br />
-              <span className="text-xs text-[#FAF8F5]/40">Rifting active: Central Atlantic Magmatic Province</span>
-            </div>
-            {/* Draw a subtle map outline in text */}
-            <div className="absolute bottom-4 right-4 text-[11px] font-mono text-[#FAF8F5]/30">
-              252.0 Ma · Epoch 1
-            </div>
-          </div>
-
-          <div>
-            <h4 className="font-serif text-[22px] text-[#FAF8F5] mb-2 font-normal">
-              The Pangaean Wilderness
-            </h4>
-            <p className="text-[15px] text-[#FAF8F5]/70 leading-relaxed font-mono">
-              Inland regions were massive sand deserts with extreme heat cycles. Herbivores like Lystrosaurus survived in river channels, while early carnivorous dinosaurs evolved high-metabolism bipedal strides to cover long desert distances.
+            <p className="text-xl md:text-2xl font-serif text-[#E8E0D0] leading-relaxed italic">
+              "Earth recovering from the Great Dying. Pangaea was dry, hot, and dominated by rifts of volcanic fire."
             </p>
+
+            <p className="text-base text-[#E8E0D0]/80 leading-relaxed font-sans">
+              Following the Permian mass extinction—which wiped out 96% of marine life—the Triassic period witnessed the slow, fragile rebirth of the biosphere. Continents were fused into the supercontinent Pangaea. In the dry interior deserts, the first true dinosaurs emerged: small, nimble, and bipedal, running beneath the shadows of massive crocodile ancestors.
+            </p>
+
+            {/* Environmental data log */}
+            <div className="grid grid-cols-2 gap-6 border-t border-[#F5F2EA]/15 pt-6 mt-4 font-mono text-[10px]">
+              <div>
+                <span className="text-[#C4903A] block uppercase tracking-wider mb-1">Atmospheric CO₂</span>
+                <span className="text-[#F5F2EA] text-xs">1,500 ppm (5× Modern)</span>
+              </div>
+              <div>
+                <span className="text-[#C4903A] block uppercase tracking-wider mb-1">Global Temp</span>
+                <span className="text-[#F5F2EA] text-xs">+10°C relative to today</span>
+              </div>
+            </div>
           </div>
-        </div>
+        </motion.div>
+
+        {/* Right Column: Specimen Showcase & Scientific Map (Double-Bezel Architecture) */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="lg:col-span-6 p-2 bg-[#050505]/45 border border-white/10 rounded-[2rem] shadow-xl backdrop-blur-sm relative group"
+        >
+          {/* Inner Core */}
+          <div className="bg-[#0A0A0A] border border-white/5 rounded-[calc(2rem-8px)] p-8 md:p-10 flex flex-col gap-6">
+            <div className="flex justify-between items-start border-b border-[#F5F2EA]/10 pb-4">
+              <span className="font-mono text-xs text-[#9E8E78] uppercase tracking-widest">
+                LITHOLOGY RECORD // PANGAEA SURVEY
+              </span>
+              <span className="font-mono text-xs text-[#C4903A] font-bold uppercase">
+                SYS: ARCHOSAURIA
+              </span>
+            </div>
+
+            {/* Interactive drawing window - Double-Bezel layout on itself */}
+            <div 
+              onMouseEnter={handleMapHover}
+              className="h-64 flex items-center justify-center border border-[#F5F2EA]/10 bg-[#050505] relative overflow-hidden p-6 rounded-[1rem] group-hover:border-[#C4903A]/30 transition-colors duration-500 cursor-crosshair"
+            >
+              <svg viewBox="0 0 100 60" className="w-full h-full stroke-[#C4903A] fill-none stroke-[0.75]">
+                <path className="draw-svg" d="M 20,30 Q 30,10 50,15 T 80,25 T 75,45 T 40,42 Z" />
+                <path className="draw-svg" d="M 32,22 Q 42,27 52,24 T 62,32" />
+                <path className="draw-svg" d="M 27,37 Q 37,35 47,39" />
+                <circle cx="50" cy="24" r="1.5" className="fill-[#C4903A]" />
+                <text x="54" y="26" className="font-mono text-[4px] fill-[#C4903A] tracking-wider font-bold">PANGAEA SUPERCONTINENT</text>
+                <text x="25" y="48" className="font-mono text-[3px] fill-[#9E8E78] tracking-widest">RIFT SYSTEM ACTIVE</text>
+              </svg>
+              <div className="absolute bottom-4 right-4 font-mono text-[10px] text-[#9E8E78]">
+                252.0 Ma · Early Triassic
+              </div>
+            </div>
+
+            <div>
+              <h4 className="font-serif text-lg text-[#F5F2EA] mb-2 uppercase tracking-wide">
+                The Pangaean Wilderness
+              </h4>
+              <p className="text-sm text-[#E8E0D0] leading-relaxed font-sans">
+                Inland regions were massive sand deserts with extreme heat cycles. Herbivores like Lystrosaurus survived in river channels, while early carnivorous dinosaurs evolved high-metabolism bipedal strides to cover long desert distances.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );

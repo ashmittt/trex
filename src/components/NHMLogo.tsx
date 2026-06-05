@@ -29,9 +29,16 @@ export default function NHMLogo() {
       <svg
         viewBox="0 0 840 100"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full fill-[#F5F2EA]"
+        className="w-full fill-[#F5F2EA] relative"
         aria-label="Natural History Museum"
       >
+        {/* Dinosaur Silhouette behind the logo */}
+        <path 
+          d="M 30,80 C 80,72 130,68 180,62 C 230,52 330,48 400,58 C 450,62 500,42 530,22 C 540,12 555,12 550,27 C 535,42 505,68 450,82 C 400,92 280,94 200,88 C 130,88 80,85 30,80 Z" 
+          fill="#F5F2EA" 
+          opacity="0.08" 
+        />
+
         {/* Letter N — translate(0,0) */}
         <g transform="translate(0,0)">
           {/* Left vertical */}

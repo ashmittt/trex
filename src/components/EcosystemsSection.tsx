@@ -45,29 +45,7 @@ const ecosystemsData: Ecosystem[] = [
     vegetation: 'Drought-resistant shrubs, early scrub herbs, and sparse water-channel reeds.',
     inhabitants: ['Velociraptor', 'Protoceratops', 'Oviraptor', 'Pinacosaurus'],
     fieldNotes: 'A harsh dune sea. Small, feathered Velociraptors hunt in family groups, using their speed to corner Protoceratops in rocky dry-wash beds. Strong seasonal winds create massive sand avalanches that preserve nesting parents.',
-    color: '#F4D03F',
-  },
-  {
-    id: 'coastal',
-    name: 'Bahariya Coastal Deltas',
-    location: 'North Africa (Egypt/Morocco)',
-    period: 'Late Cretaceous (99-93 Ma)',
-    climate: 'Tropical, hot river deltas with massive mangrove swamps and tidal flats.',
-    vegetation: 'Ferns, giant mangrove analogues, and aquatic delta rushes.',
-    inhabitants: ['Spinosaurus', 'Carcharodontosaurus', 'Paralititan', 'Onchopristis'],
-    fieldNotes: 'Tidal channels dominated by massive, semi-aquatic Spinosaurus. It wades through brackish mangrove swamps, hunting giant sawfish and coelacanths, while Carcharodontosaurus patrols the drier inland floodplains.',
-    color: '#1A1614',
-  },
-  {
-    id: 'volcanic',
-    name: 'Deccan Volcanic Highlands',
-    location: 'Gondwana (Modern India)',
-    period: 'End Cretaceous (66.5 Ma)',
-    climate: 'Extremely hot, high sulfur levels, and acid rain cycles.',
-    vegetation: 'Stressed conifer groves, ferns colonizing basalt flows, and early angiosperms.',
-    inhabitants: ['Rajasaurus', 'Titanosaurs', 'Abelisaurids'],
-    fieldNotes: 'Fissure eruptions from early Deccan Traps choke the skies in ash. Stressed Titanosaurs browse dying conifer groves along lava flows, while stocky Rajasaurus stalk weakened animals. A premonition of the final extinction.',
-    color: '#D35400',
+    color: '#C4903A',
   },
 ];
 
@@ -76,24 +54,27 @@ export default function EcosystemsSection() {
   const activeEco = ecosystemsData.find((e) => e.id === activeTab) || ecosystemsData[0];
 
   return (
-    <section className="relative min-h-screen bg-[#F5F2EA] text-[#1A1614] border-t border-[#1A1614]/15 p-6 md:p-16 flex flex-col justify-center overflow-hidden">
+    <section id="ecosystems" className="relative min-h-screen bg-bg-shale text-txt-parchment border-t border-txt-parchment/10 py-24 px-8 md:px-24 flex flex-col justify-center overflow-hidden">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#E8E0D0_1px,transparent_1px),linear-gradient(to_bottom,#E8E0D0_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-[0.015] pointer-events-none" />
+
       <div className="max-w-6xl mx-auto w-full relative z-10">
-        <span className="text-[13px] font-mono tracking-[0.4em] text-[#D35400] uppercase block mb-4">
-          STAGE 05 // MESOZOIC ECOSYSTEMS
+        <span className="font-mono text-xs tracking-[0.4em] text-accent-amber uppercase block mb-4">
+          STAGE 06 // BIOMATERIAL LAYER
         </span>
+        
         <h2
-          className="font-serif font-normal tracking-tight text-[#1A1614] leading-none mb-12"
-          style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}
+          className="font-serif font-light tracking-tight text-txt-parchment leading-none mb-12 uppercase"
+          style={{ fontSize: 'clamp(2.5rem, 5.5vw, 5rem)' }}
         >
           Environments <br />
-          <span className="font-cursive text-[#D35400] lowercase tracking-normal text-4xl md:text-7xl block mt-2">not species</span>
+          <span className="font-serif italic text-accent-amber block mt-2">not species</span>
         </h2>
 
         {/* Dynamic Selector Panel */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* Left Console Buttons */}
-          <div className="lg:col-span-4 flex flex-col gap-2 border-r border-[#1A1614]/10 pr-0 lg:pr-6">
+          {/* Left Console Buttons (Ledger Index Style) */}
+          <div className="lg:col-span-4 flex flex-col gap-3 border-r border-txt-parchment/10 pr-0 lg:pr-8">
             {ecosystemsData.map((eco) => {
               const isActive = activeTab === eco.id;
               return (
@@ -101,17 +82,19 @@ export default function EcosystemsSection() {
                   key={eco.id}
                   onClick={() => setActiveTab(eco.id)}
                   aria-pressed={isActive}
-                  className={`w-full text-left p-5 border border-[#1A1614]/10 transition-all duration-300 flex justify-between items-center cursor-pointer focus-visible:outline-none
-                    ${isActive ? 'bg-[#1A1614] text-[#F5F2EA]' : 'bg-[#FAF8F5] text-[#1A1614] hover:border-[#D35400]/40'}`}
+                  className={`w-full text-left p-6 border transition-all duration-300 flex justify-between items-center cursor-pointer focus-visible:outline-none font-mono
+                    ${isActive 
+                      ? 'bg-txt-parchment text-bg-shale border-txt-parchment' 
+                      : 'bg-black/30 border-txt-parchment/10 text-txt-limestone hover:border-accent-amber/50 hover:text-txt-parchment'}`}
                 >
                   <div>
-                    <span className={`text-[12px] font-mono block ${isActive ? 'text-yellow-400' : 'text-[#D35400]'}`}>
+                    <span className={`text-[10px] block font-bold mb-1 ${isActive ? 'text-accent-amber' : 'text-annotation'}`}>
                       {eco.period}
                     </span>
-                    <span className="font-serif text-[18px] font-normal">{eco.name}</span>
+                    <span className="font-serif text-lg font-normal tracking-wide block">{eco.name}</span>
                   </div>
                   <span
-                    className="w-1.5 h-1.5 rounded-full"
+                    className="w-2.5 h-2.5 rounded-full border border-bg-shale"
                     style={{ backgroundColor: eco.color }}
                   />
                 </button>
@@ -119,9 +102,9 @@ export default function EcosystemsSection() {
             })}
           </div>
 
-          {/* Right Content Sheet */}
-          <div className="lg:col-span-8 bg-[#FAF8F5] border border-[#1A1614]/10 p-8 md:p-12 min-h-[400px] flex flex-col justify-between relative">
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#1A1614_1px,transparent_1px),linear-gradient(to_bottom,#1A1614_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-[0.015] pointer-events-none" />
+          {/* Right Content Sheet (Scientific binder folio layout) */}
+          <div className="lg:col-span-8 bg-black/45 border border-txt-parchment/10 p-8 md:p-12 min-h-[450px] flex flex-col justify-between relative overflow-hidden">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#E8E0D0_1px,transparent_1px),linear-gradient(to_bottom,#E8E0D0_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-[0.015] pointer-events-none" />
 
             <AnimatePresence mode="wait">
               <motion.div
@@ -132,33 +115,33 @@ export default function EcosystemsSection() {
                 transition={{ duration: 0.4 }}
                 className="flex flex-col gap-6"
               >
-                <div className="flex justify-between items-center border-b border-[#1A1614]/10 pb-4">
-                  <span className="text-[12px] font-mono text-[#1A1614]/50 uppercase tracking-widest">
+                <div className="flex justify-between items-center border-b border-txt-parchment/10 pb-4">
+                  <span className="font-mono text-[10px] text-txt-limestone/50 uppercase tracking-widest">
                     ARCHIVAL BINDER // ECO-SYS.{activeEco.id.toUpperCase()}
                   </span>
-                  <span className="text-[12px] font-mono text-[#D35400] font-bold uppercase">
+                  <span className="font-mono text-[10px] text-accent-amber font-bold uppercase tracking-wider">
                     {activeEco.location}
                   </span>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 font-sans">
                   <div>
-                    <span className="text-[12px] font-mono text-[#D35400] uppercase block mb-1">Climatic System</span>
-                    <p className="text-[16px] text-[#1A1614]/80 leading-relaxed">{activeEco.climate}</p>
+                    <span className="font-mono text-[10px] text-accent-amber uppercase block mb-1.5 font-bold">Climatic System</span>
+                    <p className="text-base text-txt-parchment/85 leading-relaxed">{activeEco.climate}</p>
                   </div>
                   <div>
-                    <span className="text-[12px] font-mono text-[#D35400] uppercase block mb-1">Dominant Vegetation</span>
-                    <p className="text-[16px] text-[#1A1614]/80 leading-relaxed">{activeEco.vegetation}</p>
+                    <span className="font-mono text-[10px] text-accent-amber uppercase block mb-1.5 font-bold">Dominant Vegetation</span>
+                    <p className="text-base text-txt-parchment/85 leading-relaxed">{activeEco.vegetation}</p>
                   </div>
                 </div>
 
                 <div>
-                  <span className="text-[12px] font-mono text-[#D35400] uppercase block mb-2">Dominant Creatures Coexisting</span>
-                  <div className="flex flex-wrap gap-2">
+                  <span className="font-mono text-[10px] text-accent-amber uppercase block mb-3 font-bold">Dominant Creatures Coexisting</span>
+                  <div className="flex flex-wrap gap-2.5">
                     {activeEco.inhabitants.map((inh) => (
                       <span
                         key={inh}
-                        className="text-[13px] font-mono text-[#1A1614]/75 border border-[#1A1614]/15 px-3 py-1 bg-[#F5F2EA] rounded-sm"
+                        className="font-mono text-[11px] text-txt-parchment/80 border border-txt-parchment/15 px-3 py-1.5 bg-black/40 rounded-sm"
                       >
                         {inh}
                       </span>
@@ -166,16 +149,16 @@ export default function EcosystemsSection() {
                   </div>
                 </div>
 
-                <div className="border-t border-[#1A1614]/10 pt-6 mt-2">
-                  <span className="text-[12px] font-mono text-[#D35400] uppercase block mb-2">Curatorial Field Journal Entries</span>
-                  <p className="text-[18px] font-serif text-[#1A1614]/85 leading-relaxed italic">
+                <div className="border-t border-txt-parchment/10 pt-6 mt-2">
+                  <span className="font-mono text-[10px] text-annotation uppercase block mb-2.5 font-bold">Curatorial Field Journal Entries</span>
+                  <p className="text-lg md:text-xl font-serif text-txt-limestone leading-relaxed italic">
                     "{activeEco.fieldNotes}"
                   </p>
                 </div>
               </motion.div>
             </AnimatePresence>
 
-            <div className="text-[11px] font-mono text-[#1A1614]/30 text-right mt-8">
+            <div className="font-mono text-[9px] text-txt-limestone/30 text-right mt-8 uppercase tracking-wider">
               Palaeoecology Department · Registry No. {activeEco.id.toUpperCase()}-883
             </div>
           </div>

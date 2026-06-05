@@ -1,65 +1,67 @@
 import { motion } from 'motion/react';
+import { useAnalytics } from '../context/AnalyticsContext';
 
 interface ArrivalSectionProps {
   onStartJourney?: () => void;
 }
 
 export default function ArrivalSection({ onStartJourney }: ArrivalSectionProps) {
+  const { incrementCta } = useAnalytics();
+
+  const handleStart = () => {
+    incrementCta('start_journey');
+    if (onStartJourney) onStartJourney();
+  };
+
   return (
-    <div className="relative w-full min-h-screen flex flex-col justify-between items-center text-center p-6 md:p-16 overflow-hidden">
-      {/* Subtle grid mesh overlay for scientific/archival atmosphere */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#F5F2EA_1px,transparent_1px),linear-gradient(to_bottom,#F5F2EA_1px,transparent_1px)] bg-[size:5rem_5rem] opacity-[0.03] pointer-events-none" />
-
-      {/* Top spacer */}
-      <div className="h-20" />
-
-      {/* Center content */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-        className="max-w-4xl flex flex-col items-center gap-6 relative z-10"
-      >
-        <span className="text-[13px] font-mono tracking-[0.4em] text-[#A07C4F] uppercase">
-          STAGE 01 // DEEP TIME INITIATION
-        </span>
-
-        <h1
-          className="font-serif font-normal tracking-tight text-[#F5F2EA] leading-[1.0] select-none"
-          style={{ fontSize: 'clamp(3.5rem, 8vw, 8.5rem)' }}
+    <div className="relative flex-1 flex flex-col justify-end px-6 md:px-16 pb-24 z-10 max-w-6xl mx-auto w-full">
+      {/* Main Hero Content */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-12 w-full">
+        
+        {/* Left Side: Editorial Typography */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+          className="max-w-xl"
         >
-          A Vanished <br />
-          <span className="font-cursive text-yellow-400 lowercase tracking-normal text-5xl md:text-8xl mt-3 block">Planet</span>
-        </h1>
+          <span className="font-mono text-xs tracking-[0.3em] text-[#C4903A] uppercase block mb-4">
+            Stage 01 // Perpetual Strata
+          </span>
+          <h1
+            className="font-serif font-light tracking-tight leading-[0.85] uppercase text-[#F5F2EA]"
+            style={{ fontSize: 'clamp(3.5rem, 8.5vw, 7.5rem)' }}
+          >
+            The Age <br />
+            <span className="font-serif italic text-[#C4903A]">of Giants</span>
+          </h1>
+        </motion.div>
 
-        <p className="text-[20px] md:text-[24px] font-serif text-[#D8D1C2] italic max-w-2xl leading-relaxed mt-4">
-          "The history of Earth is not written in words, but in layers of stone, fossils, and the ghosts of forgotten worlds."
-        </p>
-
-        <p className="text-[15px] font-mono tracking-widest text-[#A9A295] uppercase max-w-md leading-relaxed mt-2">
-          An immersive chronological journey through 186 million years of the Mesozoic Era.
-        </p>
-
-        <button
-          onClick={onStartJourney}
-          className="group mt-8 border border-[#F5F2EA]/20 px-8 py-4 bg-transparent text-[#F5F2EA] hover:border-yellow-400 hover:text-yellow-400 transition-all duration-300 cursor-pointer font-mono tracking-widest text-xs uppercase"
+        {/* Right Side: Narrative Quote & Minimalist CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
+          className="max-w-md flex flex-col items-start gap-8 md:pb-4"
         >
-          Enter the Hallways of Time
-        </button>
-      </motion.div>
+          <p className="text-lg font-serif text-[#D8D1C2] leading-relaxed italic">
+            "The history of Earth is not written in words, but in layers of stone, fossils, and the ghosts of forgotten worlds."
+          </p>
 
-      {/* Bottom Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="flex flex-col items-center gap-2 mt-8 relative z-10"
-      >
-        <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#A9A295]">
-          Scroll to Travel
-        </span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-[#A9A295] to-transparent animate-pulse" />
-      </motion.div>
+          <button
+            onClick={handleStart}
+            className="group relative flex flex-col items-start focus:outline-none cursor-pointer"
+            aria-label="Descend into the geological timeline"
+          >
+            <span className="font-mono text-xs tracking-[0.25em] text-[#F5F2EA] group-hover:text-[#C4903A] uppercase transition-colors duration-300">
+              Descend into Deep Time
+            </span>
+            {/* Elegant thin line reveal */}
+            <div className="h-[1px] w-16 bg-[#F5F2EA]/30 group-hover:bg-[#C4903A] group-hover:w-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] mt-2" />
+          </button>
+        </motion.div>
+
+      </div>
     </div>
   );
 }
